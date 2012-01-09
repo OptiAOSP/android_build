@@ -302,7 +302,7 @@ $(foreach c, $(my_path_components),\
 ifndef LOCAL_UNINSTALLABLE_MODULE
 $(LOCAL_INSTALLED_MODULE): PRIVATE_POST_INSTALL_CMD := $(LOCAL_POST_INSTALL_CMD)
 $(LOCAL_INSTALLED_MODULE): $(LOCAL_BUILT_MODULE)
-	@echo "Install: $@"
+	@echo -e ${CL_INS}"Install: $@"${CL_RST}
 	$(copy-file-to-new-target)
 	$(PRIVATE_POST_INSTALL_CMD)
 
