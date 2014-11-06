@@ -20,9 +20,14 @@ LLVM_TBLGEN := $(BUILD_OUT_EXECUTABLES)/llvm-tblgen$(BUILD_EXECUTABLE_SUFFIX)
 
 # Clang flags for all host or target rules
 CLANG_CONFIG_EXTRA_ASFLAGS :=
+ifeq ($(USE_O3_OPTIMIZATIONS),true)
+CLANG_CONFIG_EXTRA_CFLAGS := -O3 -Qunused-arguments -Wno-unknown-warning-option
+CLANG_CONFIG_EXTRA_CPPFLAGS := -O3 -Qunused-arguments -Wno-unknown-warning-option -D__compiler_offsetof=__builtin_offsetof
+else
 CLANG_CONFIG_EXTRA_CFLAGS :=
 CLANG_CONFIG_EXTRA_CONLYFLAGS := -std=gnu99
 CLANG_CONFIG_EXTRA_CPPFLAGS :=
+endif
 CLANG_CONFIG_EXTRA_LDFLAGS :=
 
 CLANG_CONFIG_EXTRA_CFLAGS += \
