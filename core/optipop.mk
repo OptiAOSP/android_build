@@ -829,10 +829,7 @@ GRAPHITE_FLAGS := \
 ####################
 
 LOCAL_DONT_USE_GCC52 := \
-	$(LIBC) \
-	coremark \
-	coremark_arm \
-	coremark_thumb
+	$(LIBC)
 
 #	libm
 

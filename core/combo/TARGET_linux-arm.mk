@@ -80,11 +80,18 @@ $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
 android_config_h := $(call select-android-config-h,linux-arm)
 
 $(combo_2nd_arch_prefix)TARGET_GLOBAL_CFLAGS += \
+			-mfloat-abi=softfp \
+			-Wno-unused -Wno-unused-parameter -Wno-error=unused -Wno-error=unused-parameter \
 			-Wa,--noexecstack \
 			-Werror=format-security \
 			$(arch_variant_cflags) \
 			-include $(android_config_h) \
 			-I $(dir $(android_config_h))
+
+# arter97
+TARGET_GLOBAL_CFLAGS += \
+			-w \
+			-O2 \
 
 # This is to avoid the dreaded warning compiler message:
 #   note: the mangling of 'va_list' has changed in GCC 4.4

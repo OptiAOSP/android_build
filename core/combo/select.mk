@@ -36,7 +36,7 @@ $(combo_var_prefix)STRIP := $(STRIP)
 $(combo_var_prefix)GLOBAL_CFLAGS := -Wno-multichar
 $(combo_var_prefix)RELEASE_CFLAGS := -O2 -fno-strict-aliasing
 $(combo_var_prefix)GLOBAL_CPPFLAGS :=
-$(combo_var_prefix)GLOBAL_LDFLAGS :=
+$(combo_var_prefix)GLOBAL_LDFLAGS := -Wl,-O1 -Wl,--as-needed -Wl,--relax -Wl,--sort-common -Wl,--gc-sections
 $(combo_var_prefix)GLOBAL_ARFLAGS := crsPD
 $(combo_var_prefix)GLOBAL_LD_DIRS :=
 
