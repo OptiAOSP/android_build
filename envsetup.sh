@@ -1439,9 +1439,9 @@ function pez {
     local retval=$?
     if [ $retval -ne 0 ]
     then
-        echo -e "\e[0;31mFAILURE\e[00m"
+        printf "\e[0;31mFAILURE\e[00m\n"
     else
-        echo -e "\e[0;32mSUCCESS\e[00m"
+        printf "\e[0;32mSUCCESS\e[00m\n"
     fi
     return $retval
 }
@@ -1465,7 +1465,7 @@ function make()
     if [ -n "$ncolors" ] && [ $ncolors -ge 8 ]; then
         color_failed="\e[0;31m"
         color_success="\e[0;32m"
-        color_reset="\e[00m"
+        color_reset="\e[0m"
     else
         color_failed=""
         color_success=""
@@ -1473,9 +1473,9 @@ function make()
     fi
     echo
     if [ $ret -eq 0 ] ; then
-        echo -n -e "${color_success}#### make completed successfully "
+        printf "${color_success}#### make completed successfully "
     else
-        echo -n -e "${color_failed}#### make failed to build some targets "
+        printf "${color_failed}#### make failed to build some targets "
     fi
     if [ $hours -gt 0 ] ; then
         printf "(%02g:%02g:%02g (hh:mm:ss))" $hours $mins $secs
@@ -1484,8 +1484,7 @@ function make()
     elif [ $secs -gt 0 ] ; then
         printf "(%s seconds)" $secs
     fi
-    echo -e " ####${color_reset}"
-    echo
+    printf " ####${color_reset}\n\n"
     return $ret
 }
 
