@@ -329,35 +329,6 @@ endif
 #  END GRAPHITE_OPTS  #
 #######################
 
-#################
-# KRAIT_TUNINGS #
-#################
-ifeq ($(KRAIT_TUNINGS),true)
-ifndef LOCAL_IS_HOST_MODULE
-ifeq ($(filter $(LOCAL_DISABLE_KRAIT), $(LOCAL_MODULE)),)
-
-ifdef LOCAL_CONLYFLAGS
-LOCAL_CONLYFLAGS += \
-	$(KRAIT_FLAGS)
-else
-LOCAL_CONLYFLAGS := \
-	$(KRAIT_FLAGS)
-endif
-ifdef LOCAL_CPPFLAGS
-LOCAL_CPPFLAGS += \
-	$(KRAIT_FLAGS)
-else
-LOCAL_CPPFLAGS := \
-	$(KRAIT_FLAGS)
-endif
-
-endif
-endif
-endif
-########################
-#  END KRAIT_TUNINGS   #
-########################
-
 ####################
 # FORCE FFAST-MATH #
 ####################
