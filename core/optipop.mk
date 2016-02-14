@@ -606,4 +606,4 @@ LOCAL_FORCE_FFAST_MATH := \
     libfilterfw_native \
 
 LOCAL_DISABLE_SINGLE_PRECISION := \
-FFAST_MATH_FLAGS := -ffast-math -ftree-vectorize
+FFAST_MATH_FLAGS := -ffast-math -ftree-vectorize -fno-finite-math-only -ftrapping-math -fno-associative-math
