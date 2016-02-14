@@ -451,26 +451,6 @@ STRICT_CLANG_LEVEL := \
 #  END STRICT_ALIASING  #
 #########################
 
-
-#########################
-#    KRAIT_TUNINGS      #
-#########################
-LOCAL_DISABLE_KRAIT := \
-    libc_dns \
-    libc_tzcode \
-    bluetooth.default \
-    libwebviewchromium \
-    libwebviewchromium_loader \
-    libwebviewchromium_plat_support
-
-KRAIT_FLAGS := \
-    -mcpu=cortex-a15 \
-    -mtune=cortex-a15
-
-########################
-#  END KRAIT_TUNINGS   #
-########################
-
 ########################
 #     ENABLE_GCCONLY   #
 ########################
