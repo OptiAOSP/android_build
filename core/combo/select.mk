@@ -48,18 +48,8 @@ $(combo_var_prefix)HAVE_STRERROR_R_STRRET := 1
 $(combo_var_prefix)HAVE_STRLCPY := 0
 $(combo_var_prefix)HAVE_STRLCAT := 0
 $(combo_var_prefix)HAVE_KERNEL_MODULES := 0
-<<<<<<< HEAD
 
 $(combo_var_prefix)GLOBAL_CFLAGS := -fno-exceptions -Wno-multichar
-=======
-ifeq ($(USE_O3_OPTIMIZATIONS),true)
-$(combo_var_prefix)GLOBAL_CFLAGS := -Wno-unused-parameter -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-exceptions -Wno-multichar -Wstrict-aliasing=2
-$(combo_var_prefix)RELEASE_CFLAGS := -O2 -fomit-frame-pointer -Wno-unused-parameter -Wno-unused-but-set-variable -Wno-maybe-uninitialized
-$(combo_var_prefix)GLOBAL_CPPFLAGS := -fomit-frame-pointer -Wno-unused-parameter -Wno-unused-but-set-variable -Wno-maybe-uninitialized -Wstrict-aliasing=2
-$(combo_var_prefix)GLOBAL_LDFLAGS := -Wl,-O1 -Wl,--as-needed -Wl,--relax -Wl,--sort-common -Wl,--gc-sections
-else
-$(combo_var_prefix)GLOBAL_CFLAGS := -fno-exceptions -Wno-multichar -Wno-maybe-uninitialized
->>>>>>> 6120075... optipop:mk:added modular O3 list and updated ffast-math list
 $(combo_var_prefix)RELEASE_CFLAGS := -O2 -fno-strict-aliasing
 $(combo_var_prefix)GLOBAL_CPPFLAGS :=
 $(combo_var_prefix)GLOBAL_LDFLAGS := -Wl,-O1 -Wl,--as-needed -Wl,--relax -Wl,--sort-common -Wl,--gc-sections
