@@ -65,6 +65,7 @@ CLANG_CONFIG_EXTRA_CFLAGS += \
 
 CLANG_CONFIG_UNKNOWN_CFLAGS := \
   -funswitch-loops \
+  -floop-nest-optimize \
   -fno-tree-sra \
   -finline-limit=64 \
   -Wno-psabi \
