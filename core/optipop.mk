@@ -561,6 +561,16 @@ GRAPHITE_FLAGS := \
 #  END GRAPHITE_OPTS  #
 #######################
 
+####################
+#  FORCE GCC 5.2   #
+####################
+
+LOCAL_USE_GCC48 := \
+    libgtest_host \
+
+#######################
+#  END FORCE GCC 5.2  #
+#######################
 
 ####################
 # FORCE FFAST-MATH #

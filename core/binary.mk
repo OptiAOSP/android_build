@@ -330,6 +330,30 @@ endif
 #######################
 
 ####################
+#  FORCE GCC 5.2   #
+####################
+
+
+ifeq ($(FORCE_GCC52),true)
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+ifeq ($(filter $(LOCAL_USE_GCC48),$(LOCAL_MODULE)),)
+
+ifneq ($(LOCAL_CLANG),true)
+
+LOCAL_CC := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.2/bin/arm-linux-androideabi-gcc
+LOCAL_CXX := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.2/bin/arm-linux-androideabi-g++
+
+endif
+endif
+
+endif
+endif
+
+#######################
+#  END FORCE GCC 5.2  #
+#######################
+
+####################
 # FORCE FFAST-MATH #
 ####################
 ifeq ($(FFAST_MATH),true)
