@@ -483,21 +483,21 @@ GCC_ONLY := \
 #  FLOOP_NEST_OPTIMIZE   #
 ########################## 
 LOCAL_ENABLE_NEST := \
-    #art \
+    art \
     libsigchain \
-    #libart \
-    #libart-compiler \
-    #libartd \
-    #libartd-compiler \
-    #libart-disassembler \
-    #libartd-disassembler \
-    #core.art-host \
-    #core.art \
-    #cpplint-art-phony \
+    libart \
+    libart-compiler \
+    libartd \
+    libartd-compiler \
+    libart-disassembler \
+    libartd-disassembler \
+    core.art-host \
+    core.art \
+    cpplint-art-phony \
     libnativebridgetest \
-    #libarttest \
-    #art-run-tests \
-    #libart-gtest \
+    libarttest \
+    art-run-tests \
+    libart-gtest \
     libc \
     libc_bionic \
     libc_gdtoa \
