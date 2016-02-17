@@ -70,6 +70,7 @@ CLANG_CONFIG_EXTRA_CFLAGS += \
 
 CLANG_CONFIG_UNKNOWN_CFLAGS := \
   -finline-functions \
+  -floop-nest-optimize \
   -finline-limit=64 \
   -fno-canonical-system-headers \
   -Wno-clobbered \
