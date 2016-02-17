@@ -286,6 +286,27 @@ endif
 #  END GRAPHITE_OPTS  #
 #######################
 
+ifeq ($(filter $(LOCAL_DISABLE_PIPE), $(LOCAL_MODULE)),)
+
+ifdef LOCAL_CONLYFLAGS
+LOCAL_CONLYFLAGS += \
+       -pipe
+else
+LOCAL_CONLYFLAGS := \
+       -pipe
+endif
+
+ifdef LOCAL_CPPFLAGS
+LOCAL_CPPFLAGS += \
+       -pipe
+else
+LOCAL_CPPFLAGS := \
+       -pipe
+endif
+
+endif
+
+
 ####################
 # FORCE FFAST-MATH #
 ####################
