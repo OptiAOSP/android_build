@@ -563,7 +563,7 @@ GRAPHITE_FLAGS := \
 ####################
 
 LOCAL_USE_GCC48 := \
-    libgtest_host \
+	libpdfium \
 
 #######################
 #  END FORCE GCC 5.2  #
@@ -588,6 +588,7 @@ LOCAL_DISABLE_LTO := \
 	memtrack \
 	tcpdump \
 	libpdfium \
+	libpdfiumcore \
 	libskia \
 	libntfs-3g \
 	libnl \
@@ -805,6 +806,21 @@ LOCAL_DISABLE_LTO := \
 	audio_policy.default \
 	libbundlewrapper \
 	libGLES_trace \
+	libLLVM \
+	llvm-cov \
+	llvm-link \
+	llvm-nm \
+	llvm-extract \
+	llvm-diff \
+	llc \
+	llvm-lto \
+	llvm-config \
+	llvm-c-test \
+	llvm-ar \
+	obj2yaml \
+	llvm-bcanalyzer \
+	llvm-mcmarkup \
+	llvm-readobj
 
 LOCAL_FORCE_ARM_EXCLUSION_LIST := \
 	audioflinger \
