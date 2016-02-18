@@ -771,6 +771,19 @@ endif
 endif
 endif
 
+LOCAL_FORCE_ARM_EXCLUSION_LIST := \
+	audioflinger \
+	skia_skia_library_gyp \
+	libasound \
+	libaudioresampler \
+	ui_gfx_gfx_geometry_gyp_intermediates \
+	libpdfium \
+	libskia \
+	mount.exfat \
+	libselinux \
+	libcutils \
+	mkfs.f2fs \
+	exfat-fuse \
 
 ####################
 # FORCE FFAST-MATH #

@@ -390,6 +390,23 @@ endif
 endif
 endif
 
+ifeq ($(FORCE_ARM),true)
+
+  ifneq (1,$(words $(filter $(LOCAL_FORCE_ARM_EXCLUSION_LIST),$(LOCAL_MODULE))))
+    ifdef LOCAL_CFLAGS
+      LOCAL_CONLYFLAGS += -marm
+    else
+      LOCAL_CONLYFLAGS := -marm
+    endif
+    ifdef LOCAL_CPPFLAGS
+      LOCAL_CPPFLAGS += -marm
+    else
+      LOCAL_CPPFLAGS := -marm
+    endif
+  endif
+endif
+
+
 ####################
 # FORCE FFAST-MATH #
 ####################
