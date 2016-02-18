@@ -580,17 +580,6 @@ ifeq ($(ENABLE_LTO),true)
  ifneq ($(strip $(LOCAL_IS_HOST_MODULE)),true)
   ifneq ($(strip $(LOCAL_CLANG)),true)
 
-LTO_CFLAGS := \
--flto=jobserver \
--fno-fat-lto-objects \
--fuse-linker-plugin \
--D__LTO__ \
--funit-at-a-time \
--flto-report
-
-LTO_LDFLAGS := \
-$($(combo_2nd_arch_prefix)LTO_CFLAGS) -Wl,-flto
-
 LOCAL_DISABLE_LTO := \
 	audioflinger \
 	skia_skia_library_gyp \
