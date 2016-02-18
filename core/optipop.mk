@@ -779,16 +779,18 @@ LOCAL_DISABLE_LTO := \
 	third_party_icu_icui18n_gyp \
 	third_party_icu_system_icu_gyp \
 	third_party_icu_icuuc_gyp \
-	wpa_supplicant \
 	libreverbwrapper \
 	libdefcontainer_jni \
 	libdrmclearkeyplugin \
-	hostapd \
 	bash \
 	dexdump \
 	pigz \
 	lsof \
 	busybox \
+	libclearsilverregex \
+	libuclibcrpc \
+	libbusybox \
+	static_busybox \
 	applypatch_static \
 	applypatch \
 	updater \
@@ -820,7 +822,33 @@ LOCAL_DISABLE_LTO := \
 	obj2yaml \
 	llvm-bcanalyzer \
 	llvm-mcmarkup \
-	llvm-readobj
+	llvm-readobj \
+	libprotobuf-java-2.3.0-micro \
+	libprotobuf-java-2.3.0-lite \
+	libprotobuf-cpp-2.3.0-lite \
+	libprotobuf-cpp-2.3.0-full \
+	libprotobuf-cpp-2.3.0-full-gnustl-rtti \
+	aprotoc \
+	aprotoc-test-nano-params \
+	android-nano-test-parcelable \
+	android-nano-test-parcelable-extendable \
+	libprotobuf-java-2.3.0-nano \
+	libprotobuf-java-2.3.0-micro \
+	libfdlibm \
+	hs20-osu-client \
+	wpa_cli \
+	eapol_test \
+	hostapd_cli \
+	hostapd \
+	wpa_supplicant \
+	libeffects \
+	libdex \
+        libbuiltins \
+        libglob \
+        libsh \
+        libtilde \
+        libhistory \
+        libreadline \
 
 LOCAL_FORCE_ARM_EXCLUSION_LIST := \
 	audioflinger \
