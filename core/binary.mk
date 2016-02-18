@@ -333,6 +333,32 @@ endif
 #  END FORCE GCC 5.2  #
 #######################
 
+ifeq ($(ENABLE_LTO),true)
+ ifneq ($(strip $(LOCAL_IS_HOST_MODULE)),true)
+  ifneq ($(strip $(LOCAL_CLANG)),true)
+
+ifeq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
+  ifdef LOCAL_CFLAGS
+    LOCAL_CONLYFLAGS += -fno-lto
+  else
+    LOCAL_CONLYFLAGS := -fno-lto
+  endif
+  ifdef LOCAL_CPPFLAGS
+    LOCAL_CPPFLAGS += -fno-lto
+  else
+    LOCAL_CPPFLAGS := -fno-lto
+  endif
+  ifndef LOCAL_LDFLAGS
+    LOCAL_LDFLAGS := -Wl,-fno-lto
+  else
+    LOCAL_LDFLAGS += -Wl,-fno-lto
+  endif
+endif
+
+endif
+endif
+endif
+
 ####################
 # FORCE FFAST-MATH #
 ####################
