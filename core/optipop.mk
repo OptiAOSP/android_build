@@ -341,9 +341,6 @@ LOCAL_DISABLE_STRICT := \
     libunwind \
     libc_bionic \
     libc_malloc \
-    e2fsck \
-    mke2fs \
-    tune2fs \
     mkfs.exfat \
     fsck.exfat \
     mount.exfat \
@@ -632,12 +629,31 @@ LOCAL_DISABLE_LTO := \
 	libjemalloc \
 	libselinux \
 	libcutils \
-	e2fsprogs \
-	libadf \
-	libminui \
+	libext2_profile \
+	e2fsck \
+	recovery_e2fsck \
+	utility_e2fsck \
+	libext2fs \
+	libext2_blkid \
 	libext2_uuid \
 	libext2_uuid_static \
-	libext2_blkid \
+	libext2_e2p \
+	libext2_quota \
+	libext2_com_err \
+	mke2fs \
+	tune2fs \
+	tune2fs_static \
+	libtune2fs \
+	utility_tune2fs \
+	recovery_tune2fs \
+	badblocks \
+	chattr \
+	lsattr \
+	blkid \
+	resize2fs \
+	resize2fs_static \
+	libadf \
+	libminui \
 	liblogwrap \
 	liblog \
 	libfs_mgr \
@@ -761,7 +777,34 @@ LOCAL_DISABLE_LTO := \
 	v8_tools_gyp_v8_gyp \
 	third_party_icu_icui18n_gyp \
 	third_party_icu_system_icu_gyp \
-	third_party_icu_icuuc_gyp
+	third_party_icu_icuuc_gyp \
+	wpa_supplicant \
+	libreverbwrapper \
+	libdefcontainer_jni \
+	libdrmclearkeyplugin \
+	hostapd \
+	bash \
+	dexdump \
+	pigz \
+	lsof \
+	busybox \
+	applypatch_static \
+	applypatch \
+	updater \
+	vold \
+	recovery \
+	libnbaio \
+	libttspico \
+	fsck_msdos \
+	dumpstate \
+	installd \
+	sdcard \
+	racoon \
+	libfwdlockengine \
+	libjavacore \
+	audio_policy.default \
+	libbundlewrapper \
+	libGLES_trace \
 
 LOCAL_FORCE_ARM_EXCLUSION_LIST := \
 	audioflinger \
