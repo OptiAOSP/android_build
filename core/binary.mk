@@ -393,29 +393,29 @@ ifneq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
 
 endif
 
-#LTO_CFLAGS_DISABLE := -fno-lto -ffat-lto-objects -fno-use-linker-plugin -DN__LTO__ -fno-unit-at-a-time -fno-lto-report
-#
-#ifeq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
-#
-# ifdef LOCAL_CFLAGS
-#    LOCAL_CONLYFLAGS += $(LTO_CFLAGS_DISABLE)
-#  else
-#    LOCAL_CONLYFLAGS := $(LTO_CFLAGS_DISABLE)
-#  endif
-#
-#  ifdef LOCAL_CPPFLAGS
-#    LOCAL_CPPFLAGS += $(LTO_CFLAGS_DISABLE)
-#  else
-#    LOCAL_CPPFLAGS := $(LTO_CFLAGS_DISABLE)
-#  endif
-#
-#  ifndef LOCAL_LDFLAGS
-#    LOCAL_LDFLAGS := -Wl,-fno-lto
-#  else
-#    LOCAL_LDFLAGS += -Wl,-fno-lto
-#  endif
-#
-#endif
+LTO_CFLAGS_DISABLE := -fno-lto -ffat-lto-objects -fno-use-linker-plugin -DN__LTO__ -fno-unit-at-a-time -fno-lto-report
+
+ifeq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
+
+ ifdef LOCAL_CFLAGS
+    LOCAL_CONLYFLAGS += $(LTO_CFLAGS_DISABLE)
+  else
+    LOCAL_CONLYFLAGS := $(LTO_CFLAGS_DISABLE)
+  endif
+
+  ifdef LOCAL_CPPFLAGS
+    LOCAL_CPPFLAGS += $(LTO_CFLAGS_DISABLE)
+  else
+    LOCAL_CPPFLAGS := $(LTO_CFLAGS_DISABLE)
+  endif
+
+  ifndef LOCAL_LDFLAGS
+    LOCAL_LDFLAGS := -Wl,-fno-lto
+  else
+    LOCAL_LDFLAGS += -Wl,-fno-lto
+  endif
+
+endif
 
 
 endif
