@@ -576,10 +576,6 @@ LOCAL_USE_GCC48 := \
 # LTO #
 #######
 
-ifeq ($(ENABLE_LTO),true)
- ifneq ($(strip $(LOCAL_IS_HOST_MODULE)),true)
-  ifneq ($(strip $(LOCAL_CLANG)),true)
-
 LOCAL_DISABLE_LTO := \
 	audioflinger \
 	skia_skia_library_gyp \
@@ -766,10 +762,6 @@ LOCAL_DISABLE_LTO := \
 	third_party_icu_icui18n_gyp \
 	third_party_icu_system_icu_gyp \
 	third_party_icu_icuuc_gyp
-
-endif
-endif
-endif
 
 LOCAL_FORCE_ARM_EXCLUSION_LIST := \
 	audioflinger \

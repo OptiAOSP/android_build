@@ -371,40 +371,48 @@ LTO_CFLAGS := \
 LTO_LDFLAGS := \
 $($(combo_2nd_arch_prefix)LTO_CFLAGS) -Wl,-flto
 
-
-ifeq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
-  ifdef LOCAL_CFLAGS
-    LOCAL_CONLYFLAGS += -fno-lto
-  else
-    LOCAL_CONLYFLAGS := -fno-lto
-  endif
-  ifdef LOCAL_CPPFLAGS
-    LOCAL_CPPFLAGS += -fno-lto
-  else
-    LOCAL_CPPFLAGS := -fno-lto
-  endif
-  ifndef LOCAL_LDFLAGS
-    LOCAL_LDFLAGS := -Wl,-fno-lto
-  else
-    LOCAL_LDFLAGS += -Wl,-fno-lto
-  endif
-endif
-
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
+  #$(warning enabled LTO for $(LOCAL_MODULE))
   ifdef LOCAL_CFLAGS
     LOCAL_CONLYFLAGS += $(LTO_CFLAGS)
   else
     LOCAL_CONLYFLAGS := $(LTO_CFLAGS)
   endif
+
   ifdef LOCAL_CPPFLAGS
     LOCAL_CPPFLAGS += $(LTO_CFLAGS)
   else
     LOCAL_CPPFLAGS := $(LTO_CFLAGS)
   endif
+
   ifndef LOCAL_LDFLAGS
     LOCAL_LDFLAGS := $(LTO_LDFLAGS)
   else
     LOCAL_LDFLAGS += $(LTO_LDFLAGS)
+  endif
+
+endif
+
+ifeq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
+
+  ifdef LOCAL_CFLAGS
+    LOCAL_CONLYFLAGS += -fno-lto
+  else
+    LOCAL_CONLYFLAGS := -fno-lto
+  endif
+
+  ifdef LOCAL_CPPFLAGS
+    LOCAL_CPPFLAGS += -fno-lto
+  else
+    LOCAL_CPPFLAGS := -fno-lto
+  endif
+
+  ifndef LOCAL_LDFLAGS
+    LOCAL_LDFLAGS := -Wl,-fno-lto
+  else
+    LOCAL_LDFLAGS += -Wl,-fno-lto
+  endif
+
 endif
 
 
@@ -426,6 +434,7 @@ ifeq ($(FORCE_ARM),true)
       LOCAL_CPPFLAGS := -marm
     endif
   endif
+
 endif
 
 
