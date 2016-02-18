@@ -585,6 +585,12 @@ LOCAL_DISABLE_LTO := \
 	ntfsfix \
 	ip6tables \
 	iptables \
+	libip4tc \
+	libip6tc \
+	libxtables \
+	libext4 \
+	libext6 \
+	libext \
 	memtrack \
 	tcpdump \
 	libpdfium \
@@ -595,12 +601,21 @@ LOCAL_DISABLE_LTO := \
 	lubpcap \
 	libxtables \
 	libfusetwrp \
+	libexfat_fsck \
+	libexfat \
+	libexfat_mount \
+	libexfat \
+	mount.exfat \
+	mount.exfat_static \
+	libexfat_mkfs \
+	libfuse \
 	libstlport \
 	libf2fs \
 	fsck.f2fs \
 	mount.exfat \
 	libselinux \
 	libcutils \
+	tst_str_parms \
 	mkfs.f2fs \
 	exfat-fuse \
 	libfuse-lite \
@@ -785,24 +800,30 @@ LOCAL_DISABLE_LTO := \
 	bash \
 	dexdump \
 	pigz \
+	libzopfli \
+	libminipigz \
+	libpigz \
 	lsof \
+	liblsof \
 	busybox \
 	libclearsilverregex \
 	libuclibcrpc \
 	libbusybox \
 	static_busybox \
-	applypatch_static \
-	applypatch \
-	updater \
+	libvold \
 	vold \
-	recovery \
 	libnbaio \
+	libmedia_helper \
+	libaudioparameter \
+	libmedia \
+	libinstantssq \
 	libttspico \
 	fsck_msdos \
 	dumpstate \
 	installd \
 	sdcard \
 	racoon \
+	libipsec \
 	libfwdlockengine \
 	libjavacore \
 	audio_policy.default \
@@ -849,6 +870,38 @@ LOCAL_DISABLE_LTO := \
         libtilde \
         libhistory \
         libreadline \
+        updater \
+        libminui \
+        libminzip \
+        edify \
+        libedify \
+        uncrypt \
+        libvoldclient \
+        add-property-tag \
+        check-lost+found \
+        libminadbd \
+        libapplypatch \
+        applypatch \
+        applypatch_static \
+        imgdiff \
+        libmtdutils \
+        flash_image \
+        libfusesideload \
+        recovery \
+        bu_recovery \
+        libmake_ext4fs_static \
+        libminizip_static \
+        libreboot_static \
+        libverifier \
+        verifier_test \
+	libcrypto_static \
+	libcrypto \
+	libcrypto_static \
+	libssl_static \
+	ssltest \
+	openssl \
+	libhardware_legacy \
+	libhardware \
 
 LOCAL_FORCE_ARM_EXCLUSION_LIST := \
 	audioflinger \
@@ -889,3 +942,4 @@ LOCAL_FORCE_FFAST_MATH := \
 
 LOCAL_DISABLE_SINGLE_PRECISION := \
 FFAST_MATH_FLAGS := -ffast-math -ftree-vectorize -fno-finite-math-only -ftrapping-math -fno-associative-math
+
