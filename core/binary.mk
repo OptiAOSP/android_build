@@ -337,6 +337,19 @@ ifeq ($(ENABLE_LTO),true)
  ifneq ($(strip $(LOCAL_IS_HOST_MODULE)),true)
   ifneq ($(strip $(LOCAL_CLANG)),true)
 
+
+LTO_CFLAGS := \
+-flto=jobserver \
+-fno-fat-lto-objects \
+-fuse-linker-plugin \
+-D__LTO__ \
+-funit-at-a-time \
+-flto-report
+
+LTO_LDFLAGS := \
+$($(combo_2nd_arch_prefix)LTO_CFLAGS) -Wl,-flto
+
+
 ifeq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
   ifdef LOCAL_CFLAGS
     LOCAL_CONLYFLAGS += -fno-lto
@@ -354,6 +367,24 @@ ifeq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
     LOCAL_LDFLAGS += -Wl,-fno-lto
   endif
 endif
+
+ifneq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
+  ifdef LOCAL_CFLAGS
+    LOCAL_CONLYFLAGS += $(LTO_CFLAGS)
+  else
+    LOCAL_CONLYFLAGS := $(LTO_CFLAGS)
+  endif
+  ifdef LOCAL_CPPFLAGS
+    LOCAL_CPPFLAGS += $(LTO_CFLAGS)
+  else
+    LOCAL_CPPFLAGS := $(LTO_CFLAGS)
+  endif
+  ifndef LOCAL_LDFLAGS
+    LOCAL_LDFLAGS := $(LTO_LDFLAGS)
+  else
+    LOCAL_LDFLAGS += $(LTO_LDFLAGS)
+endif
+
 
 endif
 endif
