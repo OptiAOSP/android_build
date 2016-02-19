@@ -349,7 +349,61 @@ LTO_CFLAGS := \
 LTO_LDFLAGS := \
 $($(combo_2nd_arch_prefix)LTO_CFLAGS) -Wl,-flto
 
+# FIXME: some libstagefright* libs anyway use LTO despite it's disabled in optipop.mk
+# Disable LTO for them here for sure
+
+WEIRD_LIBS := \
+    libstagefright_aacenc \
+    libstagefright_soft_aacenc \
+    libstagefright_amrwbdec \
+    libstagefright_enc_common \
+    libstagefright_soft_vpxenc \
+    libstagefright_soft_h264dec \
+    decoder \
+    libstagefright_soft_vpxdec \
+    libstagefright_soft_avcenc \
+    libstagefright_soft_rawdec \
+    libstagefright_soft_avcdec \
+    libstagefright_avc_common \
+    libstagefright_avcenc \
+    libstagefright_soft_h264enc \
+    libstagefright_amrnb_common \
+    libstagefright_amrnbenc \
+    libstagefright_soft_amrnbenc \
+    libstagefright_amrnbdec \
+    libstagefright_soft_amrdec \
+    libstagefright_soft_flacenc \
+    libstagefright_soft_vorbisdec \
+    libstagefright_soft_hevcdec \
+    libstagefright_mp3dec \
+    libstagefright_soft_mp3dec \
+    libstagefright_soft_gsmdec \
+    libstagefright_amrwbenc \
+    libstagefright_soft_amrwbenc \
+    libstagefright_soft_opusdec \
+    libstagefright_m4vh263enc \
+    libstagefright_soft_mpeg4enc \
+    libstagefright_m4vh263dec \
+    libstagefright_soft_mpeg4dec \
+    libstagefright_soft_aacdec \
+    libstagefright_soft_g711dec \
+    SurfaceMediaSource_test \
+    Utils_test \
+    testid3 \
+    omx_tests \
+    libgsm \
+    libopus \
+    libogg \
+    libFraunhoferAAC \
+    libvpx \
+    libvpx_test \
+    libwebm \
+
+
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
+
+ifneq (1,$(words $(filter $(WEIRD_LIBS),$(LOCAL_MODULE))))
+
   #$(warning enabled LTO for $(LOCAL_MODULE))
   ifdef LOCAL_CFLAGS
     LOCAL_CONLYFLAGS += $(LTO_CFLAGS)
@@ -368,6 +422,8 @@ ifneq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
   else
     LOCAL_LDFLAGS += $(LTO_LDFLAGS)
   endif
+
+endif
 
 endif
 
