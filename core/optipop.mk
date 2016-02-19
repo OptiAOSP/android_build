@@ -775,8 +775,12 @@ LOCAL_DISABLE_LTO := \
 	libexfat_mkfs \
 	libfuse \
 	libstlport \
-	libf2fs \
+	libf2fs_fmt \
 	fsck.f2fs \
+	libf2fs_dlutils \
+	libf2fs_dlutils_static \
+	libf2fs_utils_static \
+	f2fs_sparseblock \
 	mount.exfat \
 	libselinux \
 	libminshacrypt \
@@ -809,6 +813,7 @@ LOCAL_DISABLE_LTO := \
         liblz4-static \
         libsparse_static \
         libz \
+	libbz \
 	libpixelflinger \
 	libziparchive \
 	libEGL \
@@ -1031,6 +1036,7 @@ LOCAL_DISABLE_LTO := \
 	libttspico_engine \
 	libsvoxpico \
 	fsck_msdos \
+	libfsck_msdos \
 	dumpstate \
 	installd \
 	sdcard \

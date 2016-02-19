@@ -420,7 +420,21 @@ WEIRD_LIBS := \
     libvpx \
     libvpx_test \
     libwebm \
-
+    bluetooth.default \
+    bdtest \
+    libbt-hci \
+    libosi \
+    ositests \
+    audio.a2dp.default \
+    libbluetooth_jni \
+    libbt-brcm_bta \
+    libbt-brcm_gki \
+    libbt-brcm_stack \
+    libbt-hci \
+    libbt-utils \
+    libbt-qcom_sbc_decoder \
+    libosi \
+    libdumpstate.default \
 
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
 
