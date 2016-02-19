@@ -575,7 +575,84 @@ AV_MEDIA_LIBRARIES := \
 	libcpustats \
 	libinstantssq \
 	libregistermsext \
-	libimg_utils 
+	libimg_utils \
+	fir \
+	libaudioresampler \
+	libstagefright_id3 \
+	libmockdrmcryptoplugin \
+	libdrmclearkeyplugin \
+	ClearKeyDrmUnitTest \
+	libdrmutility \
+	libfwdlockengine \
+	libfwdlock-common \
+	libfwdlock-converter \
+	libfwdlock-decoder \
+	libdrmpassthruplugin \
+	libaudio-resampler \
+	libscheduling_policy \
+	libserviceutility \
+	libaudioresampler \
+	resampler_tests \
+	libaudiopolicyservice \
+	libaudiopolicymanagerdefault \
+	libaudiopolicymanager \
+	libcamera_parameters \
+	mediaserver \
+	libaudioflinger \
+	stagefright \
+	record \
+	recordvideo \
+	audioloop \
+	stream \
+	sf2 \
+	codec \
+	muxer \
+	screenrecord \
+	libdrmframeworkcommon \
+	drmserver \
+	libdrmframework \
+	test-resample \
+	test-mixer \
+	libmedialogservice \
+	libsoundtriggerservice \
+	libcameraservice \
+	libmtp \
+	libmediandk \
+	libaudiopreprocessing \
+	libreverbtest \
+	libequalizertest \
+	libeffectproxy \
+	libldnhncr \
+	libeffects \
+	libbundlewrapper \
+	libreverbwrapper \
+	libmusicbundle \
+	libreverb \
+	libvisualizer \
+	libdownmix \
+	libmedia_helper \
+	libaudioparameter \
+	libmedia \
+	mediaserver \
+	libstagefright_http_support \
+	libstagefright_httplive \
+	libstagefright_foundation \
+	libstagefright_yuv \
+	libstagefright_wfd \
+	libstagefright_rtsp \
+	libstagefright_mpeg2ts \
+	libstagefright \
+	libstagefright_color_conversion \
+	libstagefright_webm \
+	libstagefright_matroska \
+	libstagefright_omx \
+	libstagefright_timedtext \
+	libstagefright_nuplayer \
+	libmediaplayerservice \
+	libsoundtrigger \
+	libcamera_client \
+	camera_client_test \
+	libFLAC \
 
 
 STAGEFRIGHT_LIBRARIES : \
@@ -662,9 +739,15 @@ LOCAL_DISABLE_LTO := \
 	libext4 \
 	libext6 \
 	libext \
+	libandroid_runtime \
+	libstorage \
 	memtrack \
+	libandroid \
 	tcpdump \
+	libandroid_servers \
 	libpdfium \
+	libjsmn \
+	libandroidfw \
 	libpdfiumcore \
 	libskia \
 	libgif \
@@ -737,6 +820,7 @@ LOCAL_DISABLE_LTO := \
 	$(STAGEFRIGHT_LIBRARIES) \
 	libFraunhoferAAC \
 	libtinyxml2 \
+	libsfntly \
 	libc \
 	healthd \
 	mkfs.f2fs \
@@ -989,6 +1073,10 @@ LOCAL_DISABLE_LTO := \
 	libprotobuf-java-2.3.0-micro \
 	libfdlibm \
 	hs20-osu-client \
+	libwifi-hal \
+	libwifi-service \
+	halutil \
+	wifi-service \
 	wpa_cli \
 	eapol_test \
 	hostapd_cli \
