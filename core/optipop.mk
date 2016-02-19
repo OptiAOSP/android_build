@@ -569,6 +569,49 @@ LOCAL_USE_GCC48 := \
 #  END FORCE GCC 5.2  #
 #######################
 
+STAGEFRIGHT_LIBRARIES : \
+	libstagefright \
+	libstagefright_enc_common \
+	libstagefright_soft_aacdec \
+	libstagefright_avc_common \
+	libstagefright_avcenc \
+	libstagefright_soft_h264enc \
+	libstagefright_soft_vorbisdec \
+	libstagefright_soft_gsmdec \
+	libstagefright_amrnb_common \
+	libstagefright_amrnbenc \
+	libstagefright_soft_amrnbenc \
+	libstagefright_amrnbdec \
+	libstagefright_soft_amrdec \
+	libstagefright_soft_rawdec \
+	libstagefright_amrwbdec \
+	libstagefright_m4vh263enc \
+	libstagefright_soft_mpeg4enc \
+	libstagefright_m4vh263dec \
+	libstagefright_soft_mpeg4dec \	
+	libstagefright_soft_vpxenc \
+	libstagefright_soft_vpxdec \
+	libstagefright_soft_h264dec \
+	decoder  \
+	libstagefright_amrwbenc \
+	libstagefright_soft_amrwbenc \
+	AMRWBEncTest \
+	libstagefright_soft_flacenc \
+	libstagefright_soft_dtsdec \
+	libstagefright_aacenc \
+	libstagefright_soft_aacenc \
+	AACEncTest \
+	libstagefright_soft_g711dec \
+	libstagefright_mp3dec \
+	libstagefright_soft_mp3dec \
+	libstagefright_soft_opusdec \
+	SurfaceMediaSource_test \
+	Utils_test \
+	omx_tests \
+	libstagefright_id3 \
+	testid3 \
+	TimedTextSRTSource_test 
+
 #######
 # LTO #
 #######
@@ -596,6 +639,7 @@ LOCAL_DISABLE_LTO := \
 	libpdfium \
 	libpdfiumcore \
 	libskia \
+	libgif \
 	libntfs-3g \
 	libnl \
 	lubpcap \
@@ -648,6 +692,9 @@ LOCAL_DISABLE_LTO := \
 	libziparchive \
 	libEGL \
 	libstagefright \
+	bluetooth.default \
+	librtp_jni \
+	$(STAGEFRIGHT_LIBRARIES) \
 	libc \
 	healthd \
 	mkfs.f2fs \
@@ -844,6 +891,9 @@ LOCAL_DISABLE_LTO := \
 	libmedia \
 	libinstantssq \
 	libttspico \
+	libttscompat \
+	libttspico_engine \
+	libsvoxpico \
 	fsck_msdos \
 	dumpstate \
 	installd \
@@ -852,9 +902,22 @@ LOCAL_DISABLE_LTO := \
 	racoon \
 	libipsec \
 	libfwdlockengine \
+	libdrmframework \
+	libdrmutility \
+	libdrmframeworkcommon \
+	libfwdlock-common \
+	libfwdlock-converter \
+	libfwdlock-decoder \
 	libjavacore \
 	audio_policy.default \
 	libbundlewrapper \
+	libaudiopreprocessing \
+	libeffectproxy \
+	libldnhncr \
+	libmusicbundle \
+	libreverb \
+	libvisualizer \
+	libdownmix \
 	libGLES_trace \
 	liblzf	\
 	libLLVM \
