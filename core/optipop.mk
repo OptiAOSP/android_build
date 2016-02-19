@@ -714,6 +714,14 @@ STAGEFRIGHT_LIBRARIES : \
 	libstagefright_foundation \
         libstagefright_enc_common 
 
+WILHELM_LIBRARIES := \
+	libOpenSLESUT \
+	libopensles_helper \
+	libwilhelm \
+	libOpenSLES \
+	libOpenMAXAL \
+	libOpenSLESUT \
+	libnative-media-jni 
 
 #######
 # LTO #
@@ -818,6 +826,9 @@ LOCAL_DISABLE_LTO := \
 	librtp_jni \
 	$(AV_MEDIA_LIBRARIES) \
 	$(STAGEFRIGHT_LIBRARIES) \
+	$(WILHELM_LIBRARIES) \
+	libhevcdec \
+	hevcdec \
 	libFraunhoferAAC \
 	libtinyxml2 \
 	libsfntly \
