@@ -614,6 +614,9 @@ LOCAL_DISABLE_LTO := \
 	fsck.f2fs \
 	mount.exfat \
 	libselinux \
+	libminshacrypt \
+	libpcre \
+	libmincrypt \
 	libcutils \
 	tst_str_parms \
 	mkfs.f2fs \
@@ -625,6 +628,22 @@ LOCAL_DISABLE_LTO := \
 	libexfat_mkfs \
 	mount.exfat_static \
 	libutils \
+        libsysutils \
+        liblogwrap \
+        libf2fs_sparseblock \
+        libcrypto \
+        libsoftkeymaster \
+        libext2_blkid \
+        libfs_mgr \
+        libext4_utils_static \
+        libscrypt_static \
+        libminshacrypt \
+        libbatteryservice \
+        libext2_blkid \
+        libext2_uuid_static \
+        liblz4-static \
+        libsparse_static \
+        libz \
 	libpixelflinger \
 	libziparchive \
 	libEGL \
@@ -796,6 +815,7 @@ LOCAL_DISABLE_LTO := \
 	third_party_icu_icuuc_gyp \
 	libreverbwrapper \
 	libdefcontainer_jni \
+	libdiskusage \
 	libdrmclearkeyplugin \
 	bash \
 	dexdump \
@@ -812,6 +832,12 @@ LOCAL_DISABLE_LTO := \
 	static_busybox \
 	libvold \
 	vold \
+	vdc \
+	libminivold \
+	minivold \
+	libstdc++ \
+	libdiskconfig \
+	diskconfig \
 	libnbaio \
 	libmedia_helper \
 	libaudioparameter \
@@ -822,6 +848,7 @@ LOCAL_DISABLE_LTO := \
 	dumpstate \
 	installd \
 	sdcard \
+	libsdcard \
 	racoon \
 	libipsec \
 	libfwdlockengine \
@@ -829,6 +856,7 @@ LOCAL_DISABLE_LTO := \
 	audio_policy.default \
 	libbundlewrapper \
 	libGLES_trace \
+	liblzf	\
 	libLLVM \
 	llvm-cov \
 	llvm-link \
@@ -862,6 +890,9 @@ LOCAL_DISABLE_LTO := \
 	hostapd_cli \
 	hostapd \
 	wpa_supplicant \
+	dhdutil \
+	lib_driver_cmd_bcmdhd \
+	libwifi-hal-bcm \
 	libeffects \
 	libdex \
         libbuiltins \
