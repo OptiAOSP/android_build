@@ -569,8 +569,30 @@ LOCAL_USE_GCC48 := \
 #  END FORCE GCC 5.2  #
 #######################
 
+AV_MEDIA_LIBRARIES := \
+	libnbaio \
+	libcommon_time_client \
+	libcpustats \
+	libinstantssq \
+	libregistermsext \
+	libimg_utils 
+
+
 STAGEFRIGHT_LIBRARIES : \
 	libstagefright \
+	libstagefright_http_support \
+	libstagefright_httplive \
+	libstagefright_foundation \
+	libstagefright_yuv \
+	libstagefright_wfd \
+	libstagefright_rtsp \
+	rtp_test \
+	libstagefright_mpeg2ts \
+	libstagefright_color_conversion \
+	libstagefright_webm \
+	libstagefright_matroska \
+	libstagefright_omx \
+	libstagefright_timedtext \
 	libstagefright_enc_common \
 	libstagefright_soft_aacdec \
 	libstagefright_avc_common \
@@ -588,7 +610,7 @@ STAGEFRIGHT_LIBRARIES : \
 	libstagefright_m4vh263enc \
 	libstagefright_soft_mpeg4enc \
 	libstagefright_m4vh263dec \
-	libstagefright_soft_mpeg4dec \	
+	libstagefright_soft_mpeg4dec \
 	libstagefright_soft_vpxenc \
 	libstagefright_soft_vpxdec \
 	libstagefright_soft_h264dec \
@@ -610,7 +632,11 @@ STAGEFRIGHT_LIBRARIES : \
 	omx_tests \
 	libstagefright_id3 \
 	testid3 \
-	TimedTextSRTSource_test 
+	TimedTextSRTSource_test  \
+        libstagefright_omx \
+	libstagefright_foundation \
+        libstagefright_enc_common 
+
 
 #######
 # LTO #
@@ -618,6 +644,8 @@ STAGEFRIGHT_LIBRARIES : \
 
 LOCAL_DISABLE_LTO := \
 	audioflinger \
+	libscheduling_policy \
+	libserviceutility \
 	skia_skia_library_gyp \
 	libasound \
 	libaudioresampler \
@@ -640,6 +668,8 @@ LOCAL_DISABLE_LTO := \
 	libpdfiumcore \
 	libskia \
 	libgif \
+	libwebp-encode \
+	libwebp-decode \
 	libntfs-3g \
 	libnl \
 	lubpcap \
@@ -691,10 +721,22 @@ LOCAL_DISABLE_LTO := \
 	libpixelflinger \
 	libziparchive \
 	libEGL \
-	libstagefright \
 	bluetooth.default \
+	libbt-vendor \
+	bdtest \
+	libbt-hci \
+	libosi \
+	ositests \
+	audio.a2dp.default \
+	libbt-brcm_stack \
+	libbt-utils \
+	libbt-brcm_gki \
+	libbt-brcm_bta \
 	librtp_jni \
+	$(AV_MEDIA_LIBRARIES) \
 	$(STAGEFRIGHT_LIBRARIES) \
+	libFraunhoferAAC \
+	libtinyxml2 \
 	libc \
 	healthd \
 	mkfs.f2fs \
@@ -885,7 +927,6 @@ LOCAL_DISABLE_LTO := \
 	libstdc++ \
 	libdiskconfig \
 	diskconfig \
-	libnbaio \
 	libmedia_helper \
 	libaudioparameter \
 	libmedia \
