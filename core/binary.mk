@@ -435,6 +435,8 @@ WEIRD_LIBS := \
     libbt-qcom_sbc_decoder \
     libosi \
     libdumpstate.default \
+    libwebp-decode \
+    libwebp-encode \
 
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
 
