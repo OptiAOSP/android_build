@@ -26,30 +26,35 @@ ifeq ($(strip $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)),cortex-a9)
 else
 ifeq ($(strip $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)),cortex-a8)
 	arch_variant_cflags := -mcpu=cortex-a8
+
 	arch_variant_ldflags := \
 		-Wl,--fix-cortex-a8
 else
 ifeq ($(strip $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)),cortex-a7)
 	arch_variant_cflags := -mcpu=cortex-a7
-	arch_variant_ldflags := \
-		-Wl,--no-fix-cortex-a8
 else
-	arch_variant_cflags := -march=armv7-a
-	# Generic ARM might be a Cortex A8 -- better safe than sorry
+ifeq ($(strip $(TARGET_CPU_VARIANT)),cortex-a5)
+	arch_variant_cflags := -mcpu=cortex-a5
+else
+ifeq ($(strip $(TARGET_CPU_VARIANT)),krait)
+	arch_variant_cflags := -mcpu=cortex-a9 -mtune=cortex-a9
+else
+ifeq ($(strip $(TARGET_CPU_VARIANT)),scorpion)
+	arch_variant_cflags := -mcpu=cortex-a8
+
 	arch_variant_ldflags := \
 		-Wl,--fix-cortex-a8
-endif
-endif
-endif
-endif
 
-arch_variant_cflags += \
-	-mfloat-abi=softfp
-
-ifeq ($(strip $(TARGET_$(combo_2nd_arch_prefix)FPU_VARIANT)),)
-arch_variant_cflags += \
-	-mfpu=neon
 else
-arch_variant_cflags += \
-	-mfpu=$(TARGET_$(combo_2nd_arch_prefix)FPU_VARIANT)
+	arch_variant_cflags := -march=armv7-a
 endif
+
+endif
+endif
+endif
+endif
+endif
+
+arch_variant_cflags += \
+    -mfloat-abi=softfp \
+    -mfpu=neon
