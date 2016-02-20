@@ -554,6 +554,9 @@ endif
 
 ifeq ($(FORCE_ARM),true)
 
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+ifneq ($(LOCAL_CLANG),true)
+
   ifneq (1,$(words $(filter $(LOCAL_FORCE_ARM_EXCLUSION_LIST),$(LOCAL_MODULE))))
     ifdef LOCAL_CFLAGS
       LOCAL_CONLYFLAGS += -marm
@@ -566,6 +569,9 @@ ifeq ($(FORCE_ARM),true)
       LOCAL_CPPFLAGS := -marm
     endif
   endif
+
+endif
+endif
 
 endif
 
