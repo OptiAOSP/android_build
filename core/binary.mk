@@ -309,24 +309,104 @@ endif
 endif
 
 
+LOCAL_FORCE_GCC48 := \
+    libc \
+    libc_bionic \
+    libc_gdtoa \
+    libc_netbsd \
+    libc_freebsd \
+    libc_dns \
+    libc_openbsd \
+    libc_cxa \
+    libc_syscalls \
+    libc_aeabi \
+    libc_common \
+    libc_nomalloc \
+    libc_malloc \
+    libc_stack_protector \
+    libc_tzcode \
+    libstdc++ \
+    linker \
+    linker64 \
+    libdl \
+    libm \
+    tzdata \
+    bionic-benchmarks \
+    backtrace_test
+
+
+# Force GCC 4.8 for modules from list above, if GCC 5.2 is not already forced
+
+ifneq ($(FORCE_GCC52),true)
+
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+ifneq ($(LOCAL_CLANG),true)
+
+ifeq ($(filter $(LOCAL_FORCE_GCC52),$(LOCAL_MODULE)),)
+ifneq ($(filter $(LOCAL_FORCE_GCC48),$(LOCAL_MODULE)),)
+
+
+LOCAL_CC := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/bin/arm-linux-androideabi-gcc
+LOCAL_CXX := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/bin/arm-linux-androideabi-g++
+ 
+endif
+endif
+
+endif
+endif
+
+endif
+
 ####################
 #  FORCE GCC 5.2   #
 ####################
 
+# Force GCC 5.2 for modules from list LOCAL_FORCE_GCC52 if GCC 4.8 is not already forced 
 
-ifeq ($(FORCE_GCC52),true)
+ifneq ($(FORCE_GCC52),true)
+
 ifeq ($(LOCAL_IS_HOST_MODULE),)
-ifeq ($(filter $(LOCAL_USE_GCC48),$(LOCAL_MODULE)),)
-
 ifneq ($(LOCAL_CLANG),true)
+
+ifneq ($(filter $(LOCAL_FORCE_GCC52),$(LOCAL_MODULE)),)
+#ifeq ($(filter $(LOCAL_FORCE_GCC48),$(LOCAL_MODULE)),)
+$(warning using gcc52 for $(LOCAL_MODULE))
 
 LOCAL_CC := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.2/bin/arm-linux-androideabi-gcc
 LOCAL_CXX := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.2/bin/arm-linux-androideabi-g++
 
+#endif
+endif
+
 endif
 endif
 
 endif
+
+
+#####################
+# Force GCC 5.2 for all modules, if module is not listed in LOCAL_DONT_USE_GCC52
+# and if GCC 4.8 is not already forced
+
+ifeq ($(FORCE_GCC52),true)
+
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+ifneq ($(LOCAL_CLANG),true)
+
+ifeq ($(filter $(LOCAL_DONT_USE_GCC52),$(LOCAL_MODULE)),)
+ifeq ($(filter $(LOCAL_FORCE_GCC48),$(LOCAL_MODULE)),)
+
+
+LOCAL_CC := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.2/bin/arm-linux-androideabi-gcc
+LOCAL_CXX := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.2/bin/arm-linux-androideabi-g++
+
+
+endif
+endif
+
+endif
+endif
+
 endif
 
 #######################
