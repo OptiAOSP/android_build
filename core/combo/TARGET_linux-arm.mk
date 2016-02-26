@@ -69,7 +69,7 @@ $(combo_2nd_arch_prefix)TARGET_NO_UNDEFINED_LDFLAGS := -Wl,--no-undefined
 
 $(combo_2nd_arch_prefix)TARGET_arm_CFLAGS :=    -O2 \
                         -fomit-frame-pointer \
-                        -fstrict-aliasing    \
+                        -fno-strict-aliasing    \
                         -funswitch-loops
 
 # Modules can choose to compile some source as thumb.
