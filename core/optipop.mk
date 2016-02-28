@@ -1338,6 +1338,5 @@ LOCAL_HARDFLOAT := \
        libc_hard \
        libm_hard \
 
-
 FFAST_MATH_FLAGS := -ffast-math -ftree-vectorize -fno-finite-math-only -ftrapping-math -fno-associative-math
 
