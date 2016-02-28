@@ -451,15 +451,21 @@ else
 
   $(warning using hardfloat abi for $(LOCAL_MODULE))
   ifdef LOCAL_CFLAGS
-    LOCAL_CONLYFLAGS += -mfloat-abi=hard
+    LOCAL_CONLYFLAGS += -mfloat-abi=hard -D_NDK_MATH_NO_SOFTFP=1
   else
-    LOCAL_CONLYFLAGS := -mfloat-abi=hard
+    LOCAL_CONLYFLAGS := -mfloat-abi=hard -D_NDK_MATH_NO_SOFTFP=1
   endif
 
   ifdef LOCAL_CPPFLAGS
-    LOCAL_CPPFLAGS += -mfloat-abi=hard
+    LOCAL_CPPFLAGS += -mfloat-abi=hard -D_NDK_MATH_NO_SOFTFP=1
   else
-    LOCAL_CPPFLAGS := -mfloat-abi=hard
+    LOCAL_CPPFLAGS := -mfloat-abi=hard -D_NDK_MATH_NO_SOFTFP=1
+  endif
+
+  ifndef LOCAL_LDFLAGS
+    LOCAL_LDFLAGS := -Wl,--no-warn-mismatch 
+  else
+    LOCAL_LDFLAGS += -Wl,--no-warn-mismatch 
   endif
 
 

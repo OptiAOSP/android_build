@@ -42,3 +42,6 @@ endif
 endif
 endif
 
+ arch_variant_cflags += \
+     -march=armv7-a \
+
