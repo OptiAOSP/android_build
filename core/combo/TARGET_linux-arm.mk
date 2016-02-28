@@ -97,7 +97,6 @@ endif
 android_config_h := $(call select-android-config-h,linux-arm)
 
 $(combo_2nd_arch_prefix)TARGET_GLOBAL_CFLAGS += \
-			-msoft-float \
 			-ffunction-sections \
 			-fdata-sections \
 			-funwind-tables \
@@ -108,7 +107,7 @@ $(combo_2nd_arch_prefix)TARGET_GLOBAL_CFLAGS += \
 			-fno-short-enums \
 			-no-canonical-prefixes \
 			-fno-canonical-system-headers \
-			$(arch_variant_cflags) \
+			-mcpu=cortex-a9 -mtune=cortex-a9 \
 			-include $(android_config_h) \
 			-I $(dir $(android_config_h))
 

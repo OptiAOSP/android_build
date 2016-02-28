@@ -456,6 +456,65 @@ endif
 #  END FORCE GCC 5.2  #
 #######################
 
+#######################
+#  NEON OPTIMIZATION  #
+#######################
+
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+  ifdef LOCAL_CFLAGS
+    LOCAL_CONLYFLAGS += -mfpu=neon
+  else
+    LOCAL_CONLYFLAGS := -mfpu=neon
+  endif
+
+  ifdef LOCAL_CPPFLAGS
+    LOCAL_CPPFLAGS += -mfpu=neon
+  else
+    LOCAL_CPPFLAGS := -mfpu=neon
+  endif
+endif
+
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+
+ifeq ($(filter $(LOCAL_HARDFLOAT),$(LOCAL_MODULE)),)
+
+  ifdef LOCAL_CFLAGS
+    LOCAL_CONLYFLAGS += -mfloat-abi=softfp
+  else
+    LOCAL_CONLYFLAGS := -mfloat-abi=softfp
+  endif
+
+  ifdef LOCAL_CPPFLAGS
+    LOCAL_CPPFLAGS += -mfloat-abi=softfp
+  else
+    LOCAL_CPPFLAGS := -mfloat-abi=softfp
+  endif
+
+else
+
+  $(warning using hardfloat abi for $(LOCAL_MODULE))
+  ifdef LOCAL_CFLAGS
+    LOCAL_CONLYFLAGS += -mfloat-abi=hard
+  else
+    LOCAL_CONLYFLAGS := -mfloat-abi=hard
+  endif
+
+  ifdef LOCAL_CPPFLAGS
+    LOCAL_CPPFLAGS += -mfloat-abi=hard
+  else
+    LOCAL_CPPFLAGS := -mfloat-abi=hard
+  endif
+
+
+endif
+
+endif
+
+
+#########################
+# END NEON OPTIMIZATION #
+#########################
+
 ifeq ($(ENABLE_LTO),true)
  ifneq ($(strip $(LOCAL_IS_HOST_MODULE)),true)
   ifneq ($(strip $(LOCAL_CLANG)),true)

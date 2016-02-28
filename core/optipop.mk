@@ -525,15 +525,15 @@ LOCAL_DISABLE_O3 := \
 LOCAL_O3_EXTRAS_FLAGS := -fno-inline-functions
 
 ifneq ($(filter $(TARGET_GCC_VERSION), 5.1 5.1.%),)
-	LOCAL_O3_EXTRAS_FLAGS += -Wno-array-bounds
+	LOCAL_O3_EXTRAS_FLAGS = -Wno-array-bounds
 endif
 
 ifeq ($(DISABLE_OPTIMIZATIONS_ON_CHROMIUM),true)
-    LOCAL_DISABLE_O3 += $(WEBCHROMIUM_STATIC_LIBRARIES)
+    LOCAL_DISABLE_O3 = $(WEBCHROMIUM_STATIC_LIBRARIES)
 endif
 
 ifeq ($(TARGET_DEVICE),shamu)
-    LOCAL_O3_EXTRAS_FLAGS += -fno-tree-vectorize
+    LOCAL_O3_EXTRAS_FLAGS = -fno-tree-vectorize
 endif
 ####################
 #  END  03  FLAGS  #
@@ -772,7 +772,7 @@ LOCAL_ENABLE_NEST := \
     libc_malloc \
     libc_stack_protector \
     libc_tzcode \
-    libstdc++ \
+    libstdc \
     linker \
     libdl \
     libm \
@@ -1005,6 +1005,21 @@ LOCAL_DISABLE_LTO := \
 	libc_malloc \
 	libc_stack_protector \
 	libc_tzcode \
+	libc_bionic_hard \
+	libc_gdtoa_hard \
+	libc_netbsd_hard \
+	libc_freebsd_hard \
+	libc_dns_hard \
+	libc_openbsd_hard \
+	libc_cxa_hard \
+	libc_syscalls_hard \
+	libc_aeabi_hard \
+	libc_common_hard \
+	libc_malloc_hard \
+	libc_stack_protector_hard \
+	libc_tzcode_hard \
+	libc_hard \
+	libm_hard \
 	third_party_libvpx_libvpx_gyp \
 	libvpx_asm_offsets_vp8 \
 	libvpx_asm_offsets_vpx_scale \
@@ -1133,7 +1148,7 @@ LOCAL_DISABLE_LTO := \
 	vdc \
 	libminivold \
 	minivold \
-	libstdc++ \
+	libstdc \
 	libdiskconfig \
 	diskconfig \
 	libmedia_helper \
@@ -1227,7 +1242,7 @@ LOCAL_DISABLE_LTO := \
         uncrypt \
         libvoldclient \
         add-property-tag \
-        check-lost+found \
+        check-lostfound \
         libminadbd \
         libapplypatch \
         applypatch \
@@ -1304,6 +1319,25 @@ LOCAL_FORCE_GCC52 := \
 	$(ART_LIBRARIES) \
 	surfaceflinger \
 	app_process
+
+LOCAL_HARDFLOAT := \
+       whetstone_hard \
+       libc_bionic_hard \
+       libc_gdtoa_hard \
+       libc_netbsd_hard \
+       libc_freebsd_hard \
+       libc_dns_hard \
+       libc_openbsd_hard \
+       libc_cxa_hard \
+       libc_syscalls_hard \
+       libc_aeabi_hard \
+       libc_common_hard \
+       libc_malloc_hard \
+       libc_stack_protector_hard \
+       libc_tzcode_hard \
+       libc_hard \
+       libm_hard \
+
 
 FFAST_MATH_FLAGS := -ffast-math -ftree-vectorize -fno-finite-math-only -ftrapping-math -fno-associative-math
 
