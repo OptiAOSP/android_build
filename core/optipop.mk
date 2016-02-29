@@ -758,6 +758,7 @@ LOCAL_ENABLE_NEST := \
     art-run-tests \
     libart-gtest \
     libc \
+    libc_hard \
     libc_bionic \
     libc_gdtoa \
     libc_netbsd \
@@ -776,6 +777,7 @@ LOCAL_ENABLE_NEST := \
     linker \
     libdl \
     libm \
+    libm_hard \
     tzdata \
     bionic-benchmarks
 #############################
@@ -958,7 +960,6 @@ LOCAL_DISABLE_LTO := \
         libartd-compiler \
         libart-disassembler \
         libartd-disassembler \
-	libm \
 	libjemalloc \
 	libselinux \
 	libcutils \
