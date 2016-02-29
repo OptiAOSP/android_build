@@ -415,7 +415,12 @@ ifeq ($(FORCE_GCC52),true)
 ifeq ($(LOCAL_IS_HOST_MODULE),)
 ifneq ($(LOCAL_CLANG),true)
 
-ifeq ($(filter $(LOCAL_DONT_USE_GCC52),$(LOCAL_MODULE)),)
+ifneq ($(filter $(LOCAL_DONT_USE_GCC52),$(LOCAL_MODULE)),)
+
+$(warning not using GCC 5.2 for $(LOCAL_MODULE))
+
+else
+
 ifeq ($(filter $(LOCAL_FORCE_GCC48),$(LOCAL_MODULE)),)
 ifeq ($(filter $(LOCAL_FORCE_GCC49),$(LOCAL_MODULE)),)
 

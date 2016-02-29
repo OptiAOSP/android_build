@@ -870,13 +870,13 @@ GRAPHITE_FLAGS := \
 ####################
 
 LOCAL_DONT_USE_GCC52 := \
+    $(STAGEFRIGHT_LIBRARIES) \
+    $(AV_MEDIA_LIBRARIES)
 
 LOCAL_FORCE_GCC48 := \
     backtrace_test
 
 LOCAL_FORCE_GCC49 := \
-    $(STAGEFRIGHT_LIBRARIES) \
-    $(AV_MEDIA_LIBRARIES)
 
 
 #######################
