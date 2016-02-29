@@ -866,13 +866,21 @@ GRAPHITE_FLAGS := \
 #######################
 
 ####################
-#  FORCE GCC 5.2   #
+#  FORCE GCC X.Y   #
 ####################
 
 LOCAL_DONT_USE_GCC52 := \
 
+LOCAL_FORCE_GCC48 := \
+    backtrace_test
+
+LOCAL_FORCE_GCC49 := \
+    $(STAGEFRIGHT_LIBRARIES) \
+    $(AV_MEDIA_LIBRARIES)
+
+
 #######################
-#  END FORCE GCC 5.2  #
+#  END FORCE GCC X.Y  #
 #######################
 
 #######
