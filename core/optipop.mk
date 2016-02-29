@@ -1018,8 +1018,6 @@ LOCAL_DISABLE_LTO := \
 	libc_malloc_hard \
 	libc_stack_protector_hard \
 	libc_tzcode_hard \
-	libc_hard \
-	libm_hard \
 	third_party_libvpx_libvpx_gyp \
 	libvpx_asm_offsets_vp8 \
 	libvpx_asm_offsets_vpx_scale \
