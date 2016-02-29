@@ -418,20 +418,6 @@ endif
 #######################
 
 ifeq ($(LOCAL_IS_HOST_MODULE),)
-  ifdef LOCAL_CFLAGS
-    LOCAL_CONLYFLAGS += -mfpu=neon
-  else
-    LOCAL_CONLYFLAGS := -mfpu=neon
-  endif
-
-  ifdef LOCAL_CPPFLAGS
-    LOCAL_CPPFLAGS += -mfpu=neon
-  else
-    LOCAL_CPPFLAGS := -mfpu=neon
-  endif
-endif
-
-ifeq ($(LOCAL_IS_HOST_MODULE),)
 
 ifeq ($(filter $(LOCAL_HARDFLOAT),$(LOCAL_MODULE)),)
 
@@ -445,6 +431,18 @@ ifeq ($(filter $(LOCAL_HARDFLOAT),$(LOCAL_MODULE)),)
     LOCAL_CPPFLAGS += -mfloat-abi=softfp
   else
     LOCAL_CPPFLAGS := -mfloat-abi=softfp
+  endif
+
+  ifdef LOCAL_CFLAGS
+    LOCAL_CONLYFLAGS += -mfpu=neon
+  else
+    LOCAL_CONLYFLAGS := -mfpu=neon
+  endif
+
+  ifdef LOCAL_CPPFLAGS
+    LOCAL_CPPFLAGS += -mfpu=neon
+  else
+    LOCAL_CPPFLAGS := -mfpu=neon
   endif
 
 else
@@ -466,6 +464,18 @@ else
     LOCAL_LDFLAGS := -Wl,--no-warn-mismatch 
   else
     LOCAL_LDFLAGS += -Wl,--no-warn-mismatch 
+  endif
+
+  ifdef LOCAL_CFLAGS
+    LOCAL_CONLYFLAGS += -mfpu=vfpv3
+  else
+    LOCAL_CONLYFLAGS := -mfpu=vfpv3
+  endif
+
+  ifdef LOCAL_CPPFLAGS
+    LOCAL_CPPFLAGS += -mfpu=vfpv3
+  else
+    LOCAL_CPPFLAGS := -mfpu=vfpv3
   endif
 
 
