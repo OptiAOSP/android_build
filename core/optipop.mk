@@ -13,6 +13,49 @@
 # limitations under the License.
 #
 
+LIBC := \
+	libc \
+	libc_hard \
+	libc_bionic \
+	libc_gdtoa \
+	libc_netbsd \
+	libc_freebsd \
+	libc_dns \
+	libc_openbsd \
+	libc_cxa \
+	libc_syscalls \
+	libc_aeabi \
+	libc_common \
+	libc_nomalloc \
+	libc_malloc \
+	libc_stack_protector \
+	libc_tzcode \
+	libc_bionic_hard \
+	libc_gdtoa_hard \
+	libc_netbsd_hard \
+	libc_freebsd_hard \
+	libc_dns_hard \
+	libc_openbsd_hard \
+	libc_cxa_hard \
+	libc_syscalls_hard \
+	libc_aeabi_hard \
+	libc_common_hard \
+	libc_malloc_hard \
+	libc_stack_protector_hard \
+	libc_tzcode_hard \
+
+
+BIONIC_LIBRARIES := \
+	$(LIBC) \
+	libstdc++ \
+	linker \
+	linker64 \
+	libdl \
+	libm \
+	libm_hard \
+	tzdata \
+	bionic-benchmarks \
+
 ART_LIBRARIES := \
 	libart-disassembler \
 	libartd-disassembler \
@@ -837,6 +880,7 @@ LOCAL_DONT_USE_GCC52 := \
 #######
 
 LOCAL_DISABLE_LTO := \
+	$(LIBC) \
 	libutils \
 	audioflinger \
 	libxz \
@@ -992,33 +1036,6 @@ LOCAL_DISABLE_LTO := \
 	liblog \
 	libfs_mgr \
 	libvpx \
-	libc_bionic \
-	libc_gdtoa \
-	libc_netbsd \
-	libc_freebsd \
-	libc_dns \
-	libc_openbsd \
-	libc_cxa \
-	libc_syscalls \
-	libc_aeabi \
-	libc_common \
-	libc_nomalloc \
-	libc_malloc \
-	libc_stack_protector \
-	libc_tzcode \
-	libc_bionic_hard \
-	libc_gdtoa_hard \
-	libc_netbsd_hard \
-	libc_freebsd_hard \
-	libc_dns_hard \
-	libc_openbsd_hard \
-	libc_cxa_hard \
-	libc_syscalls_hard \
-	libc_aeabi_hard \
-	libc_common_hard \
-	libc_malloc_hard \
-	libc_stack_protector_hard \
-	libc_tzcode_hard \
 	third_party_libvpx_libvpx_gyp \
 	libvpx_asm_offsets_vp8 \
 	libvpx_asm_offsets_vpx_scale \
@@ -1316,6 +1333,7 @@ LOCAL_DISABLE_SINGLE_PRECISION := \
 
 LOCAL_FORCE_GCC52 := \
 	$(ART_LIBRARIES) \
+	$(BIONIC_LIBRARIES) \
 	surfaceflinger \
 	app_process
 
