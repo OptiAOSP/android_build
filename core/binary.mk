@@ -310,28 +310,6 @@ endif
 
 
 LOCAL_FORCE_GCC48 := \
-    libc \
-    libc_bionic \
-    libc_gdtoa \
-    libc_netbsd \
-    libc_freebsd \
-    libc_dns \
-    libc_openbsd \
-    libc_cxa \
-    libc_syscalls \
-    libc_aeabi \
-    libc_common \
-    libc_nomalloc \
-    libc_malloc \
-    libc_stack_protector \
-    libc_tzcode \
-    libstdc++ \
-    linker \
-    linker64 \
-    libdl \
-    libm \
-    tzdata \
-    bionic-benchmarks \
     backtrace_test
 
 
