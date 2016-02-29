@@ -871,13 +871,18 @@ GRAPHITE_FLAGS := \
 
 LOCAL_DONT_USE_GCC52 := \
     $(STAGEFRIGHT_LIBRARIES) \
-    $(AV_MEDIA_LIBRARIES)
+    $(AV_MEDIA_LIBRARIES) \
+    libm \
+    libm_hard
 
 LOCAL_FORCE_GCC48 := \
     backtrace_test
 
 LOCAL_FORCE_GCC49 := \
-
+    $(STAGEFRIGHT_LIBRARIES) \
+    $(AV_MEDIA_LIBRARIES) \
+    libm \
+    libm_hard
 
 #######################
 #  END FORCE GCC X.Y  #
