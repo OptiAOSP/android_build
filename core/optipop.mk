@@ -872,8 +872,6 @@ GRAPHITE_FLAGS := \
 LOCAL_DONT_USE_GCC52 := \
     $(STAGEFRIGHT_LIBRARIES) \
     $(AV_MEDIA_LIBRARIES) \
-    libm \
-    libw
 
 LOCAL_FORCE_GCC48 := \
     backtrace_test
@@ -881,8 +879,6 @@ LOCAL_FORCE_GCC48 := \
 LOCAL_FORCE_GCC49 := \
     $(STAGEFRIGHT_LIBRARIES) \
     $(AV_MEDIA_LIBRARIES) \
-    libm \
-    libw
 
 #######################
 #  END FORCE GCC X.Y  #
@@ -1324,6 +1320,9 @@ LOCAL_FORCE_ARM_EXCLUSION_LIST := \
 # FORCE FFAST-MATH #
 ####################
 LOCAL_FORCE_FFAST_MATH := \
+    whetstone \
+    whetstone_hard \
+    whetstone_hard_test \
     libskia \
     libGLESv2 \
     libEGL \
