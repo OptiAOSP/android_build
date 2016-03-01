@@ -1353,7 +1353,6 @@ LOCAL_FORCE_GCC52 := \
 LOCAL_HARDFLOAT := \
        whetstone_hard \
        whetstone_hard_dyn \
-       whetstone_hard_test \
        libc_bionic_hard \
        libc_gdtoa_hard \
        libc_netbsd_hard \
