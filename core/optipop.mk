@@ -894,6 +894,8 @@ LOCAL_FORCE_GCC49 := \
 
 LOCAL_DISABLE_LTO := \
 	$(LIBC) \
+        libm \
+        libm_hard \
 	libutils \
 	audioflinger \
 	libxz \
@@ -1352,6 +1354,8 @@ LOCAL_FORCE_GCC52 := \
 
 LOCAL_HARDFLOAT := \
        whetstone_hard \
+       whetstone_hard_dyn \
+       whetstone_hard_test \
        libc_bionic_hard \
        libc_gdtoa_hard \
        libc_netbsd_hard \
