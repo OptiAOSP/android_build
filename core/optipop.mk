@@ -52,7 +52,7 @@ BIONIC_LIBRARIES := \
 	linker64 \
 	libdl \
 	libm \
-	libm_hard \
+	libw \
 	tzdata \
 	bionic-benchmarks \
 
@@ -820,7 +820,7 @@ LOCAL_ENABLE_NEST := \
     linker \
     libdl \
     libm \
-    libm_hard \
+    libw \
     tzdata \
     bionic-benchmarks
 #############################
@@ -873,7 +873,7 @@ LOCAL_DONT_USE_GCC52 := \
     $(STAGEFRIGHT_LIBRARIES) \
     $(AV_MEDIA_LIBRARIES) \
     libm \
-    libm_hard
+    libw
 
 LOCAL_FORCE_GCC48 := \
     backtrace_test
@@ -882,7 +882,7 @@ LOCAL_FORCE_GCC49 := \
     $(STAGEFRIGHT_LIBRARIES) \
     $(AV_MEDIA_LIBRARIES) \
     libm \
-    libm_hard
+    libw
 
 #######################
 #  END FORCE GCC X.Y  #
@@ -895,7 +895,7 @@ LOCAL_FORCE_GCC49 := \
 LOCAL_DISABLE_LTO := \
 	$(LIBC) \
         libm \
-        libm_hard \
+        libw \
 	libutils \
 	audioflinger \
 	libxz \
@@ -1370,7 +1370,7 @@ LOCAL_HARDFLOAT := \
        libc_stack_protector_hard \
        libc_tzcode_hard \
        libc_hard \
-       libm_hard \
+       libw \
 
 FFAST_MATH_FLAGS := -ffast-math -ftree-vectorize -fno-finite-math-only -ftrapping-math -fno-associative-math
 
