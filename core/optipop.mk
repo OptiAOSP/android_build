@@ -889,6 +889,7 @@ LOCAL_FORCE_GCC49 := \
 #######
 
 LOCAL_DISABLE_LTO := \
+	$(LIBC) \
         libm \
         libw \
 	libutils \
