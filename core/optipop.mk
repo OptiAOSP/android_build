@@ -1369,6 +1369,20 @@ LOCAL_HARDFLOAT := \
        libc_tzcode_hard \
        libc_hard \
        libw \
+       libui \
+       libgui \
+       libEGL \
+       libGLESv2 \
+       libGLESv1_CM
+
+# to try:
+#
+#	libsurfaceflinger \
+#	libsurfaceflinger_ddmconnection \
+#	surfaceflinger \
+
+
+	
 
 FFAST_MATH_FLAGS := -ffast-math -ftree-vectorize -fno-finite-math-only -ftrapping-math -fno-associative-math
 
