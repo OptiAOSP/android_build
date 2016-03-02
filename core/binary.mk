@@ -553,11 +553,6 @@ else
 
 endif
 
-ifneq ($(filter $(LOCAL_USE_LIBW),$(LOCAL_MODULE)),)
-   $(warning using libw for $(LOCAL_MODULE))
-   LOCAL_SYSTEM_SHARED_LIBRARIES := libc libw
-endif
-
 endif
 
 
