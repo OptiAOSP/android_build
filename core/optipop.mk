@@ -884,12 +884,52 @@ LOCAL_FORCE_GCC49 := \
 #  END FORCE GCC X.Y  #
 #######################
 
+##############
+# HARD FLOAT #
+##############
+
+LOCAL_HARDFLOAT := \
+       whetstone_hard \
+       whetstone_hard_dyn \
+       libc_bionic_hard \
+       libc_gdtoa_hard \
+       libc_netbsd_hard \
+       libc_freebsd_hard \
+       libc_dns_hard \
+       libc_openbsd_hard \
+       libc_cxa_hard \
+       libc_syscalls_hard \
+       libc_aeabi_hard \
+       libc_common_hard \
+       libc_malloc_hard \
+       libc_stack_protector_hard \
+       libc_tzcode_hard \
+       libc_hard \
+       libw \
+       libui \
+       libgui \
+
+# to try:
+#
+#	libsurfaceflinger \
+#	libsurfaceflinger_ddmconnection \
+#	surfaceflinger \
+#       libEGL \
+#       libGLESv2 \
+#       libGLESv1_CM
+
+##################
+# END HARD FLOAT #
+##################
+
+
 #######
 # LTO #
 #######
 
 LOCAL_DISABLE_LTO := \
 	$(LIBC) \
+	$(LOCAL_HARDFLOAT) \
         libm \
         libw \
 	libutils \
@@ -1350,39 +1390,6 @@ LOCAL_FORCE_GCC52 := \
 	$(BIONIC_LIBRARIES) \
 	surfaceflinger \
 	app_process
-
-LOCAL_HARDFLOAT := \
-       whetstone_hard \
-       whetstone_hard_dyn \
-       libc_bionic_hard \
-       libc_gdtoa_hard \
-       libc_netbsd_hard \
-       libc_freebsd_hard \
-       libc_dns_hard \
-       libc_openbsd_hard \
-       libc_cxa_hard \
-       libc_syscalls_hard \
-       libc_aeabi_hard \
-       libc_common_hard \
-       libc_malloc_hard \
-       libc_stack_protector_hard \
-       libc_tzcode_hard \
-       libc_hard \
-       libw \
-       libui \
-       libgui \
-
-# to try:
-#
-#	libsurfaceflinger \
-#	libsurfaceflinger_ddmconnection \
-#	surfaceflinger \
-#       libEGL \
-#       libGLESv2 \
-#       libGLESv1_CM
-
-
-	
 
 FFAST_MATH_FLAGS := -ffast-math -ftree-vectorize -fno-finite-math-only -ftrapping-math -fno-associative-math
 
