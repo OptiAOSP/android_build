@@ -1350,6 +1350,16 @@ LOCAL_FORCE_GCC52 := \
 	surfaceflinger \
 	app_process
 
+LOCAL_USE_LIBW = \
+	libsurfaceflinger \
+	libsurfaceflinger_ddmconnection \
+	surfaceflinger \
+	libui \
+	libgui \
+	libEGL \
+	libGLESv2 \
+	libGLESv1_CM
+
 LOCAL_HARDFLOAT := \
        whetstone_hard \
        whetstone_hard_dyn \
@@ -1368,6 +1378,9 @@ LOCAL_HARDFLOAT := \
        libc_tzcode_hard \
        libc_hard \
        libw \
+       $(LOCAL_USE_LIBW)
+
+	
 
 FFAST_MATH_FLAGS := -ffast-math -ftree-vectorize -fno-finite-math-only -ftrapping-math -fno-associative-math
 
