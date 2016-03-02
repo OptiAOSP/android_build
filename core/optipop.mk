@@ -1371,15 +1371,15 @@ LOCAL_HARDFLOAT := \
        libw \
        libui \
        libgui \
-       libEGL \
-       libGLESv2 \
-       libGLESv1_CM
 
 # to try:
 #
 #	libsurfaceflinger \
 #	libsurfaceflinger_ddmconnection \
 #	surfaceflinger \
+#       libEGL \
+#       libGLESv2 \
+#       libGLESv1_CM
 
 
 	
