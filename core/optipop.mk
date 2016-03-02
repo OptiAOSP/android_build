@@ -890,7 +890,8 @@ LOCAL_FORCE_GCC49 := \
 
 LOCAL_HARDFLOAT := \
        whetstone_hard \
-       whetstone_hard_dyn \
+       whetstone_hard_test \
+       test_hard \
        libc_bionic_hard \
        libc_gdtoa_hard \
        libc_netbsd_hard \
