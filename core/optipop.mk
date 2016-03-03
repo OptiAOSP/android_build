@@ -75,84 +75,82 @@ ART_LIBRARIES := \
 	patchoat
 
 SYSTEM_CORE_LIBRARIES := \
- libsysutils \
- libsparse \
- libsparse_static \
- liblog \
- libusbhost \
- logcat \
- reboot \
- liblogwrap \
- liblogwrap \
- logwrapper \
- gpttool \
- libmemtrack \
- memtrack_test \
- libdiskconfig \
-libbacktrace \
- libnativebridge \
- libnativebridge-dummy \
- libsync \
- sync_test \
- sync-unit-tests \
- netcfg \
- libnetutils \
- libprocessgroup \
- processgroup_cleanup \
- adb \
- adbd \
- libfs_mgr \
- fs_mgr \
- libadf \
- libadfhwc \
- libsuspend \
- libsdcard \
- sdcard \
- rsa_test \
- ecdsa_test \
- dumpkey \
- libmincrypt \
- libminshacrypt \
- libzipfile \
- test_zipfile \
- libpixelflinger \
- libpixelflinger_static \
- libziparchive \
- libziparchive \
- ziparchive-tests \
- libcutils \
- tst_str_parms \
- libcutils_test \
- libcutils_test_static \
- logd \
- libtoolbox_cat \
- libtoolbox_chown \
- libtoolbox_cp \
- libtoolbox_dd \
- libtoolbox_du \
- libtoolbox_grep \
- libtoolbox_kill \
- libtoolbox_ln \
- libtoolbox_mv \
- libtoolbox_printenv \
- libtoolbox_rm \
- libtoolbox_rmdir \
- libtoolbox_sleep \
- libtoolbox_sync \
- toolbox \
- libion \
- iontest \
- ion-unit-tests \
- libutils \
- libutils \
- libutils \
- auditd \
- init \
- lmkd \
- debuggerd \
- crasher \
- gptedit \
- libvendortrigger.default 
+	libsysutils \
+	libsparse \
+	libsparse_static \
+	liblog \
+	libusbhost \
+	logcat \
+	reboot \
+	liblogwrap \
+	liblogwrap \
+	logwrapper \
+	gpttool \
+	libmemtrack \
+	memtrack_test \
+	libdiskconfig \
+	libbacktrace \
+	libnativebridge \
+	libnativebridge-dummy \
+	libsync \
+	sync_test \
+	sync-unit-tests \
+	netcfg \
+	libnetutils \
+	libprocessgroup \
+	processgroup_cleanup \
+	adb \
+	adbd \
+	libfs_mgr \
+	fs_mgr \
+	libadf \
+	libadfhwc \
+	libsuspend \
+	libsdcard \
+	sdcard \
+	rsa_test \
+	ecdsa_test \
+	dumpkey \
+	libmincrypt \
+	libminshacrypt \
+	libzipfile \
+	test_zipfile \
+	libpixelflinger \
+	libpixelflinger_static \
+	libziparchive \
+	libziparchive \
+	ziparchive-tests \
+	libcutils \
+	tst_str_parms \
+	libcutils_test \
+	libcutils_test_static \
+	logd \
+	libtoolbox_cat \
+	libtoolbox_chown \
+	libtoolbox_cp \
+	libtoolbox_dd \
+	libtoolbox_du \
+	libtoolbox_grep \
+	libtoolbox_kill \
+	libtoolbox_ln \
+	libtoolbox_mv \
+	libtoolbox_printenv \
+	libtoolbox_rm \
+	libtoolbox_rmdir \
+	libtoolbox_sleep \
+	libtoolbox_sync \
+	toolbox \
+	libion \
+	iontest \
+	ion-unit-tests \
+	libutils \
+	auditd \
+	init \
+	lmkd \
+	debuggerd \
+	crasher \
+	gptedit \
+	libvendortrigger.default 
 
 
 AV_MEDIA_LIBRARIES := \
@@ -873,15 +871,15 @@ GRAPHITE_FLAGS := \
 ####################
 
 LOCAL_DONT_USE_GCC52 := \
-    $(STAGEFRIGHT_LIBRARIES) \
-    $(AV_MEDIA_LIBRARIES) \
+	$(STAGEFRIGHT_LIBRARIES) \
+	$(AV_MEDIA_LIBRARIES) \
 
 LOCAL_FORCE_GCC48 := \
-    backtrace_test
+	backtrace_test
 
 LOCAL_FORCE_GCC49 := \
-    $(STAGEFRIGHT_LIBRARIES) \
-    $(AV_MEDIA_LIBRARIES) \
+	$(STAGEFRIGHT_LIBRARIES) \
+	$(AV_MEDIA_LIBRARIES) \
 
 LOCAL_FORCE_GCC52 := \
 	$(ART_LIBRARIES) \
@@ -1130,9 +1128,6 @@ LOCAL_DISABLE_LTO := \
 	skia_skia_opts_gyp \
 	ui_gfx_gfx_geometry_gyp \
 	lib_core_neon_offsets \
-	\
-	\
-	\
 	base_base_static_gyp \
 	base_third_party_dynamic_annotations_dynamic_annotations_gyp \
 	cc_cc_gyp \
