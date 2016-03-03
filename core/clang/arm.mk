@@ -23,6 +23,7 @@ CLANG_CONFIG_arm_EXTRA_LDFLAGS :=
 CLANG_CONFIG_arm_UNKNOWN_CFLAGS := \
   $(CLANG_CONFIG_UNKNOWN_CFLAGS) \
   -mthumb-interwork \
+  -fsingle-precision-constant \
   -fgcse-after-reload \
   -frerun-cse-after-loop \
   -frename-registers \
