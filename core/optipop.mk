@@ -910,8 +910,6 @@ LOCAL_HARDFLOAT := \
        libc_tzcode_hard \
        libc_hard \
        libw \
-       libui \
-       libgui \
 
 # to try:
 #
