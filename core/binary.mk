@@ -560,6 +560,10 @@ endif
 # END NEON OPTIMIZATION #
 #########################
 
+##########################
+# Link Time Optimization #
+##########################
+
 ifeq ($(ENABLE_LTO),true)
  ifneq ($(strip $(LOCAL_IS_HOST_MODULE)),true)
   ifneq ($(strip $(LOCAL_CLANG)),true)
@@ -699,6 +703,14 @@ endif
 endif
 endif
 
+##############################
+# END Link Time Optimization #
+##############################
+
+#############
+# FORCE ARM #
+#############
+
 ifeq ($(FORCE_ARM),true)
 
 ifeq ($(LOCAL_IS_HOST_MODULE),)
@@ -722,6 +734,9 @@ endif
 
 endif
 
+#################
+# END FORCE ARM #
+#################
 
 ####################
 # FORCE FFAST-MATH #
@@ -752,6 +767,34 @@ endif
 ####################
 #  END  FFAST-MATH #
 ####################
+
+#############################
+# UNSAFE LOOP OPTIMIZATIONS #
+#############################
+
+ifeq ($(UNSAFE_LOOPS_OPTIMIZATIONS),true)
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+ifeq ($(filter $(LOCAL_DISABLE_UNSAFE_LOOPS_OPTIMIZATIONS), $(LOCAL_MODULE)),)
+
+ifdef LOCAL_CONLYFLAGS
+LOCAL_CONLYFLAGS += -funsafe-loop-optimizations
+else
+LOCAL_CONLYFLAGS := -funsafe-loop-optimizations
+endif
+
+ifdef LOCAL_CPPFLAGS
+LOCAL_CPPFLAGS +=  -funsafe-loop-optimizations
+else
+LOCAL_CPPFLAGS := -funsafe-loop-optimizations
+endif
+
+endif
+endif
+endif
+
+#################################
+# END UNSAFE LOOP OPTIMIZATIONS #
+#################################
 
 #####
 # The following LOCAL_ variables will be modified in this file.
