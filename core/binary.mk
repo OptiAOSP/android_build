@@ -659,7 +659,10 @@ endif
 #############################
 
 ifeq ($(UNSAFE_LOOPS_OPTIMIZATIONS),true)
+
 ifeq ($(LOCAL_IS_HOST_MODULE),)
+ifneq ($(LOCAL_CLANG),true)
+
 ifeq ($(filter $(LOCAL_DISABLE_UNSAFE_LOOPS_OPTIMIZATIONS), $(LOCAL_MODULE)),)
 
 ifdef LOCAL_CONLYFLAGS
@@ -675,7 +678,10 @@ LOCAL_CPPFLAGS := -funsafe-loop-optimizations
 endif
 
 endif
+
 endif
+endif
+
 endif
 
 #################################
