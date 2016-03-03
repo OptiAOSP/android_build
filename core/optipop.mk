@@ -298,7 +298,10 @@ STAGEFRIGHT_LIBRARIES : \
 	TimedTextSRTSource_test  \
         libstagefright_omx \
 	libstagefright_foundation \
-        libstagefright_enc_common 
+        libstagefright_enc_common  \
+        libstagefright_soft_ste_wmapro_v10 \
+        libstagefright_soft_ste_mp3dec \
+        libstagefright_soft_ste_aacdec
 
 WILHELM_LIBRARIES := \
 	libOpenSLESUT \
@@ -1362,6 +1365,9 @@ LOCAL_FORCE_ARM_EXCLUSION_LIST := \
 # FORCE FFAST-MATH #
 ####################
 LOCAL_FORCE_FFAST_MATH := \
+    $(AV_MEDIA_LIBRARIES) \
+    $(STAGEFRIGHT_LIBRARIES) \
+    $(WILHELM_LIBRARIES) \
     whetstone \
     whetstone_hard \
     whetstone_hard_test \
