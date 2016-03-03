@@ -156,34 +156,6 @@ endif
 # limitations under the License.
 #
 
-####################
-# O3 FLAGS   #
-####################
-ifeq ($(USE_O3_OPTIMIZATIONS),true)
-ifeq ($(filter $(LOCAL_DISABLE_O3), $(LOCAL_MODULE)),)
-
-ifdef LOCAL_CONLYFLAGS
-LOCAL_CONLYFLAGS += \
-	-O3
-else
-LOCAL_CONLYFLAGS := \
-	-O3
-endif
-
-ifdef LOCAL_CPPFLAGS
-LOCAL_CPPFLAGS += \
-	-O3
-else
-LOCAL_CPPFLAGS := \
-	-O3
-endif
-
-endif
-endif
-####################
-#  END  03  FLAGS  #
-####################
-
 #####################
 # STRICT_ALIASING   #
 #####################
@@ -237,37 +209,6 @@ endif
 endif
 #########################
 #  END STRICT_ALIASING  #
-#########################
-
-########################
-#     ENABLE_GCCONLY   #
-########################
-ifeq ($(ENABLE_GCCONLY),true)
-ifndef LOCAL_IS_HOST_MODULE
-ifeq ($(LOCAL_CLANG),)
-ifeq ($(filter $(LOCAL_DISABLE_GCCONLY), $(LOCAL_MODULE)),)
-
-ifdef LOCAL_CONLYFLAGS
-LOCAL_CONLYFLAGS += \
-	$(GCC_ONLY)
-else
-LOCAL_CONLYFLAGS := \
-	$(GCC_ONLY)
-endif
-ifdef LOCAL_CPPFLAGS
-LOCAL_CPPFLAGS += \
-	$(GCC_ONLY)
-else
-LOCAL_CPPFLAGS := \
-	$(GCC_ONLY)
-endif
-
-endif
-endif
-endif
-endif
-#########################
-#     END GCC ONLY      #
 #########################
 
 ##########################

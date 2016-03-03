@@ -545,46 +545,6 @@ WEBCHROMIUM_STATIC_LIBRARIES := \
     third_party_WebKit_public_blink_gyp \
     third_party_WebKit_public_blink_resources_gyp \
 
-
-####################
-#      O3 FLAG     #
-####################
-
-LOCAL_DISABLE_O3 := \
-	libstagefright \
-	libstagefright_soft_aacdec \
-	libstagefright_id3 \
-	libbluetooth_jni \
-	libbt-brcm_bta \
-	libbt-brcm_stack \
-	libbt-hci \
-	libaudioflinger \
-	libbinder \
-	libexynosv4l2 \
-	bluetooth.default \
-	$(WEBCHROMIUM_STATIC_LIBRARIES) \
-	libwebviewchromium \
-	libwebviewchromium_loader \
-	libwebviewchromium_plat_support
-
-LOCAL_O3_EXTRAS_FLAGS := -fno-inline-functions
-
-ifneq ($(filter $(TARGET_GCC_VERSION), 5.1 5.1.%),)
-	LOCAL_O3_EXTRAS_FLAGS = -Wno-array-bounds
-endif
-
-ifeq ($(DISABLE_OPTIMIZATIONS_ON_CHROMIUM),true)
-    LOCAL_DISABLE_O3 = $(WEBCHROMIUM_STATIC_LIBRARIES)
-endif
-
-ifeq ($(TARGET_DEVICE),shamu)
-    LOCAL_O3_EXTRAS_FLAGS = -fno-tree-vectorize
-endif
-####################
-#  END  03  FLAGS  #
-####################
-
-
 ###################
 # TARGET_USE_PIPE #
 ###################
@@ -753,34 +713,6 @@ STRICT_CLANG_LEVEL := \
     -Wstrict-aliasing=2
 #########################
 #  END STRICT_ALIASING  #
-#########################
-
-########################
-#     ENABLE_GCCONLY   #
-########################
-LOCAL_DISABLE_GCCONLY := \
-    bluetooth.default \
-    libwebviewchromium \
-    libwebviewchromium_loader \
-    libwebviewchromium_plat_support
-
-GCC_ONLY := \
-    -fira-loop-pressure \
-    -fforce-addr \
-    -funsafe-loop-optimizations \
-    -funroll-loops \
-    -ftree-loop-distribution \
-    -fsection-anchors \
-    -ftree-loop-im \
-    -ftree-loop-ivcanon \
-    -ffunction-sections \
-    -fgcse-las \
-    -fgcse-sm \
-    -fweb \
-    -ffp-contract=fast \
-    -mvectorize-with-neon-quad
-#########################
-#     END GCC ONLY      #
 #########################
 
 ##########################
