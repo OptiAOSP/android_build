@@ -241,7 +241,7 @@ AV_MEDIA_LIBRARIES := \
 	libFLAC \
 
 
-STAGEFRIGHT_LIBRARIES : \
+STAGEFRIGHT_LIBRARIES := \
 	libstagefright \
 	libstagefright_http_support \
 	libstagefright_httplive \
@@ -1371,6 +1371,13 @@ LOCAL_FORCE_FFAST_MATH := \
     whetstone \
     whetstone_hard \
     whetstone_hard_test \
+    libsurfaceflinger \
+    libsurfaceflinger_ddmconnection \
+    surfaceflinger \
+    libinput \
+    libinputflinger \
+    libsensorservice \
+    sensorservice \
     libskia \
     libGLESv2 \
     libEGL \
