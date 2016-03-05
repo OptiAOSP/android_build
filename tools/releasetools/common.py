@@ -167,7 +167,7 @@ def LoadInfoDict(input_file):
 
   def makeint(key):
     if key in d:
-      d[key] = int(d[key], 0)
+      d[key] = int(d[key], 0) if d[key] else 2
 
   makeint("recovery_api_version")
   makeint("blocksize")
