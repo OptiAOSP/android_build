@@ -765,6 +765,7 @@ LOCAL_ENABLE_NEST := \
 #       GRAPHITE_OPTS       #
 #############################
 LOCAL_DISABLE_GRAPHITE := \
+    libavcodec \
     libunwind \
     libFFTEm \
     libicui18n \
@@ -804,21 +805,13 @@ GRAPHITE_FLAGS := \
 ####################
 
 LOCAL_DONT_USE_GCC52 := \
-	$(STAGEFRIGHT_LIBRARIES) \
-	$(AV_MEDIA_LIBRARIES) \
 
 LOCAL_FORCE_GCC48 := \
 	backtrace_test
 
 LOCAL_FORCE_GCC49 := \
-	$(STAGEFRIGHT_LIBRARIES) \
-	$(AV_MEDIA_LIBRARIES) \
 
 LOCAL_FORCE_GCC52 := \
-	$(ART_LIBRARIES) \
-	$(BIONIC_LIBRARIES) \
-	surfaceflinger \
-	app_process
 
 
 #######################
@@ -870,6 +863,7 @@ LOCAL_HARDFLOAT := \
 LOCAL_DISABLE_LTO := \
 	$(LIBC) \
 	$(LOCAL_HARDFLOAT) \
+	libavcodec \
         libm \
         libw \
 	libutils \
