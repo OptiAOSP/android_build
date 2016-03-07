@@ -1328,38 +1328,9 @@ LOCAL_FORCE_ARM_EXCLUSION_LIST := \
 # FORCE FFAST-MATH #
 ####################
 
-LOCAL_FORCE_FFAST_MATH := \
-	$(AV_MEDIA_LIBRARIES) \
-	$(STAGEFRIGHT_LIBRARIES) \
-	$(WILHELM_LIBRARIES) \
-	whetstone \
-	whetstone_hard \
-	whetstone_hard_test \
-	libsurfaceflinger \
-	libsurfaceflinger_ddmconnection \
-	surfaceflinger \
-	libinput \
-	libinputflinger \
-	libsensorservice \
-	sensorservice \
-	libskia \
-	libGLESv2 \
-	libEGL \
-	libGLESv1_CM \
-	libGLES_android \
-	skia_skia_gyp \
-	skia_skia_library_gyp \
-	libui \
-	libgui \
-	libhwui \
-	third_party_WebKit_Source_core_webcore_rendering_gyp \
-	third_party_WebKit_Source_core_webcore_svg_gyp \
-	third_party_WebKit_Source_core_webcore_generated_gyp \
-	third_party_WebKit_Source_core_webcore_html_gyp \
-	third_party_WebKit_Source_core_webcore_remaining_gy \
-	third_party_WebKit_Source_web_blink_web_gyp \
-	libfilterfw_jni \
-	libfilterfw_native \
+LOCAL_DONT_FORCE_FFAST_MATH := \
+		$(WEBCHROMIUM_STATIC_LIBRARIES) \
+		v8_tools_gyp_v8_base_gyp_intermediates 
 
 LOCAL_DISABLE_SINGLE_PRECISION := \
 

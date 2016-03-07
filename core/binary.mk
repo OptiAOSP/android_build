@@ -613,7 +613,8 @@ endif
 # FORCE FFAST-MATH #
 ####################
 ifeq ($(FFAST_MATH),true)
-ifneq ($(filter $(LOCAL_FORCE_FFAST_MATH), $(LOCAL_MODULE)),)
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+ifeq ($(filter $(LOCAL_DONT_FORCE_FFAST_MATH), $(LOCAL_MODULE)),)
 
 ifdef LOCAL_CONLYFLAGS
 LOCAL_CONLYFLAGS += $(FFAST_MATH_FLAGS)
@@ -627,12 +628,15 @@ else
 LOCAL_CPPFLAGS :=  $(FFAST_MATH_FLAGS)
 endif
 
+ifneq ($(LOCAL_CLANG),true)
 ### Some modules doesn't like forcing single precision, until we fix casting errors, let's disable this optimization
 ifeq ($(filter $(LOCAL_DISABLE_SINGLE_PRECISION), $(LOCAL_MODULE)),)
 LOCAL_CONLYFLAGS += -fsingle-precision-constant
 LOCAL_CPPFLAGS   += -fsingle-precision-constant
 endif
+endif
 
+endif
 endif
 endif
 ####################
