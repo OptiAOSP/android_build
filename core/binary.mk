@@ -224,7 +224,11 @@ else ifeq ($(USE_CLANG_PLATFORM_BUILD),true)
     endif
 endif
 
+ifneq ($(LOCAL_USE_STD_GNU_CPP11),true)
 my_cpp_std_version := -std=gnu++14
+else
+my_cpp_std_version := -std=gnu++11
+endif
 
 ifneq ($(my_clang),true)
     # GCC uses an invalid C++14 ABI (emits calls to
