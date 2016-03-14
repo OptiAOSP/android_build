@@ -224,10 +224,23 @@ else ifeq ($(USE_CLANG_PLATFORM_BUILD),true)
     endif
 endif
 
-ifneq ($(LOCAL_USE_STD_GNU_CPP11),true)
-my_cpp_std_version := -std=gnu++14
-else
+LOCAL_USE_STD_GNU_CPP14_LIST := \
+	init \
+	libbootstat \
+	libinit \
+	libadb \
+	libmemunreachable \
+	iotop \
+	bootstat
+	
+
 my_cpp_std_version := -std=gnu++11
+
+ifneq ($(filter $(LOCAL_USE_STD_GNU_CPP14_LIST), $(LOCAL_MODULE)),)
+    my_cpp_std_version := -std=gnu++14
+    ifneq ($(my_clang),true)
+        $(warning using -std=gnu++14 for $(LOCAL_MODULE))
+    endif
 endif
 
 ifneq ($(my_clang),true)
