@@ -728,7 +728,7 @@ ifneq ($(TARGET_COPY_FILES_OVERRIDES),)
     PRODUCT_COPY_FILES := $(filter-out $(TARGET_COPY_FILES_OVERRIDES), $(PRODUCT_COPY_FILES))
 endif
 
-ifneq ($(CM_BUILD),)
+ifneq ($(ULTI_BUILD),)
 # Include any vendor specific config.mk file
 -include $(TOPDIR)vendor/*/build/core/config.mk
 
