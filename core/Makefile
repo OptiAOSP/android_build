@@ -767,8 +767,6 @@ ifeq (true,$(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_SUPPORTS_VERITY))
 INTERNAL_USERIMAGES_DEPS += $(BUILD_VERITY_TREE) $(APPEND2SIMG) $(VERITY_SIGNER)
 endif
 
-SELINUX_FC := $(TARGET_ROOT_OUT)/file_contexts
-INTERNAL_USERIMAGES_DEPS += $(SELINUX_FC)
 
 # $(1): the path of the output dictionary file
 # $(2): additional "key=value" pairs to append to the dictionary file.
@@ -790,7 +788,6 @@ $(if $(BOARD_VENDORIMAGE_JOURNAL_SIZE),$(hide) echo "vendor_journal_size=$(BOARD
 $(if $(BOARD_OEMIMAGE_PARTITION_SIZE),$(hide) echo "oem_size=$(BOARD_OEMIMAGE_PARTITION_SIZE)" >> $(1))
 $(if $(BOARD_OEMIMAGE_JOURNAL_SIZE),$(hide) echo "oem_journal_size=$(BOARD_OEMIMAGE_JOURNAL_SIZE)" >> $(1))
 $(if $(INTERNAL_USERIMAGES_SPARSE_EXT_FLAG),$(hide) echo "extfs_sparse_flag=$(INTERNAL_USERIMAGES_SPARSE_EXT_FLAG)" >> $(1))
-$(hide) echo "selinux_fc=$(SELINUX_FC)" >> $(1)
 $(if $(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_SUPPORTS_BOOT_SIGNER),$(hide) echo "boot_signer=$(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_SUPPORTS_BOOT_SIGNER)" >> $(1))
 $(if $(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_SUPPORTS_VERITY),$(hide) echo "verity=$(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_SUPPORTS_VERITY)" >> $(1))
 $(if $(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_SUPPORTS_VERITY),$(hide) echo "verity_key=$(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_VERITY_SIGNING_KEY)" >> $(1))
@@ -1454,7 +1451,6 @@ $(BUILT_TARGET_FILES_PACKAGE): \
 		$(INSTALLED_CACHEIMAGE_TARGET) \
 		$(INSTALLED_VENDORIMAGE_TARGET) \
 		$(INSTALLED_ANDROID_INFO_TXT_TARGET) \
-		$(SELINUX_FC) \
 		$(built_ota_tools) \
 		$(APKCERTS_FILE) \
 		$(HOST_OUT_EXECUTABLES)/fs_config \
@@ -1567,11 +1563,6 @@ endif
 	$(hide) (cd $(zip_root) && zip -qry ../$(notdir $@) .)
 	@# Run fs_config on all the system, vendor, boot ramdisk,
 	@# and recovery ramdisk files in the zip, and save the output
-	$(hide) zipinfo -1 $@ | awk 'BEGIN { FS="SYSTEM/" } /^SYSTEM\// {print "system/" $$2}' | $(HOST_OUT_EXECUTABLES)/fs_config -C -D $(TARGET_OUT) -S $(SELINUX_FC) > $(zip_root)/META/filesystem_config.txt
-	$(hide) zipinfo -1 $@ | awk 'BEGIN { FS="VENDOR/" } /^VENDOR\// {print "vendor/" $$2}' | $(HOST_OUT_EXECUTABLES)/fs_config -C -D $(TARGET_OUT) -S $(SELINUX_FC) > $(zip_root)/META/vendor_filesystem_config.txt
-	$(hide) zipinfo -1 $@ | awk 'BEGIN { FS="BOOT/RAMDISK/" } /^BOOT\/RAMDISK\// {print $$2}' | $(HOST_OUT_EXECUTABLES)/fs_config -C -D $(TARGET_OUT) -S $(SELINUX_FC) > $(zip_root)/META/boot_filesystem_config.txt
-	$(hide) zipinfo -1 $@ | awk 'BEGIN { FS="RECOVERY/RAMDISK/" } /^RECOVERY\/RAMDISK\// {print $$2}' | $(HOST_OUT_EXECUTABLES)/fs_config -C -D $(TARGET_OUT) -S $(SELINUX_FC) > $(zip_root)/META/recovery_filesystem_config.txt
-	$(hide) (cd $(zip_root) && zip -q ../$(notdir $@) META/*filesystem_config.txt)
 	$(hide) PATH=$(foreach p,$(INTERNAL_USERIMAGES_BINARY_PATHS),$(p):)$$PATH MKBOOTIMG=$(MKBOOTIMG) \
 	    ./build/tools/releasetools/add_img_to_target_files -p $(HOST_OUT) $@
 
