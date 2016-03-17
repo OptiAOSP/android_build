@@ -689,6 +689,16 @@ ALL_DEFAULT_INSTALLED_MODULES += $(installed_notice_html_gz)
 endif
 endif  # TARGET_BUILD_APPS
 
+
+ifneq ($(TARGET_KERNEL_SOURCE),)
+# If we know where the kernel source is, grab the notice file from there.
+$(kernel_notice_file): \
+	    $(TARGET_KERNEL_SOURCE)/COPYING \
+	    | $(ACP)
+	@echo Copying: $@
+	$(hide) mkdir -p $(dir $@)
+	$(hide) $(ACP) $< $@
+else
 # The kernel isn't really a module, so to get its module file in there, we
 # make the target NOTICE files depend on this particular file too, which will
 # then be in the right directory for the find in combine-notice-files to work.
@@ -698,6 +708,7 @@ $(kernel_notice_file): \
 	@echo -e ${CL_CYN}"Copying:"${CL_RST}" $@"
 	$(hide) mkdir -p $(dir $@)
 	$(hide) $(ACP) $< $@
+endif
 
 
 # -----------------------------------------------------------------
@@ -1254,11 +1265,6 @@ endef
 
 $(BUILT_SYSTEMIMAGE): $(FULL_SYSTEMIMAGE_DEPS) $(INSTALLED_FILES_FILE)
 	$(call build-systemimage-target,$@)
-
-ifndef I_WANT_A_QUAIL_STAR
-$(BUILT_SYSTEMIMAGE): checkapi
-$(BUILT_SYSTEMIMAGE): checkapi-cm
-endif
 
 INSTALLED_SYSTEMIMAGE := $(PRODUCT_OUT)/system.img
 SYSTEMIMAGE_SOURCE_DIR := $(TARGET_OUT)
