@@ -805,11 +805,27 @@ GRAPHITE_FLAGS := \
 ####################
 
 LOCAL_DONT_USE_GCC52 := \
+	gralloc.montblanc \
+	liblog \
+	libc++ \
+	libc_cxa \
+	libRS \
+	libRSSupport \
+	libRSCpuRef \
+	libRSDriver \
+	libaudioutils \
+	vold \
+	libvold
 
 LOCAL_FORCE_GCC48 := \
 	backtrace_test
 
 LOCAL_FORCE_GCC49 := \
+	gralloc.montblanc \
+	liblog \
+	libc++ \
+	vold \
+	libvold
 
 LOCAL_FORCE_GCC52 := \
 
