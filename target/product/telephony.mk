@@ -22,7 +22,7 @@ PRODUCT_PACKAGES := \
     Dialer \
     CallLogBackup \
     InCallUI \
-    Mms \
+    messaging \
     rild
 
 PRODUCT_COPY_FILES := \
