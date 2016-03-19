@@ -202,7 +202,7 @@ def add_to_manifest(repositories, fallback_branch = None):
 
 def fetch_dependencies(repo_path, fallback_branch = None):
     print('Looking for dependencies')
-    dependencies_path = repo_path + '/cm.dependencies'
+    dependencies_path = repo_path + '/ulti.dependencies'
     syncable_repos = []
 
     if os.path.exists(dependencies_path):
@@ -225,7 +225,7 @@ def fetch_dependencies(repo_path, fallback_branch = None):
 
     if len(syncable_repos) > 0:
         print('Syncing dependencies')
-        os.system('repo sync --force-sync %s' % ' '.join(syncable_repos))
+        os.system('repo sync  %s' % ' '.join(syncable_repos))
 
     for deprepo in syncable_repos:
         fetch_dependencies(deprepo)
@@ -287,7 +287,7 @@ else:
             add_to_manifest([adding], fallback_branch)
 
             print("Syncing repository to retrieve project.")
-            os.system('repo sync --force-sync %s' % repo_path)
+            os.system('repo sync  %s' % repo_path)
             print("Repository synced!")
 
             fetch_dependencies(repo_path, fallback_branch)
