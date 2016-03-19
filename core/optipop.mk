@@ -828,6 +828,8 @@ LOCAL_FORCE_GCC49 := \
 	libvold
 
 LOCAL_FORCE_GCC52 := \
+	$(ART_LIBRARIES) \
+	libhwui
 
 
 #######################
