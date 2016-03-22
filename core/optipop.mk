@@ -311,6 +311,14 @@ WILHELM_LIBRARIES := \
 	libOpenSLESUT \
 	libnative-media-jni 
 
+RS_LIBRARIES := \
+	libRSDispatch
+
+V8_LIBRARIES := \
+	d8 \
+	libv8 \
+	v8_mksnapshot.$(TARGET_ARCH)
+
 WEBCHROMIUM_STATIC_LIBRARIES := \
     android_webview_android_webview_common_gyp \
     android_webview_native_webview_native_gyp \
@@ -880,6 +888,7 @@ LOCAL_HARDFLOAT := \
 
 LOCAL_DISABLE_LTO := \
 	$(LIBC) \
+	$(RS_LIBRARIES) \
 	$(LOCAL_HARDFLOAT) \
 	libavcodec \
         libm \
@@ -1305,6 +1314,7 @@ LOCAL_DISABLE_LTO := \
 	openssl \
 	libhardware_legacy \
 	libhardware \
+	libicuandroid_utils
 
 ##############################
 # END Link Time Optimization #
