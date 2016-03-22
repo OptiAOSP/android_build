@@ -44,6 +44,11 @@ LIBC := \
 	libc_malloc_hard \
 	libc_stack_protector_hard \
 	libc_tzcode_hard \
+	libc_bionic_ndk \
+	libc_pthread \
+	libc_ndk \
+	libc_thread_atexit_impl
+
 
 
 BIONIC_LIBRARIES := \
@@ -156,6 +161,10 @@ SYSTEM_CORE_LIBRARIES := \
 
 AV_MEDIA_LIBRARIES := \
 	libnbaio \
+	libavextensions \
+	libmediautils \
+	libavmediaextentions \
+	libavmediaserviceextensions \
 	libcommon_time_client \
 	libcpustats \
 	libinstantssq \
@@ -318,6 +327,13 @@ V8_LIBRARIES := \
 	d8 \
 	libv8 \
 	v8_mksnapshot.$(TARGET_ARCH)
+
+WIFI_LIBRARIES := \
+	libwifi-hal \
+	libwifi-hal-stub \
+	libwifi-service \
+	wifi-service
+
 
 WEBCHROMIUM_STATIC_LIBRARIES := \
     android_webview_android_webview_common_gyp \
@@ -888,12 +904,17 @@ LOCAL_HARDFLOAT := \
 
 LOCAL_DISABLE_LTO := \
 	$(LIBC) \
+	libstdc++ \
 	$(RS_LIBRARIES) \
 	$(LOCAL_HARDFLOAT) \
+	$(V8_LIBRARIES) \
+	$(WIFI_LIBRARIES) \
 	libavcodec \
         libm \
         libw \
+	libbinder \
 	libutils \
+	libhealthd.$(TARGET_BOARD_PLATFORM) \
 	audioflinger \
 	libxz \
 	libscheduling_policy \
@@ -1032,6 +1053,8 @@ LOCAL_DISABLE_LTO := \
 	mkfs.f2fs \
 	adbd \
 	init \
+	libbase \
+	libinit \
 	libdl \
         libart \
         libart-compiler \
