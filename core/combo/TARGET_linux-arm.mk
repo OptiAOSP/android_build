@@ -82,7 +82,6 @@ android_config_h := $(call select-android-config-h,linux-arm)
 $(combo_2nd_arch_prefix)TARGET_GLOBAL_CFLAGS += \
 			-mfloat-abi=softfp \
 			-Wno-unused -Wno-unused-parameter -Wno-error=unused -Wno-error=unused-parameter \
-			-Wa,--noexecstack \
 			-Werror=format-security \
 			$(arch_variant_cflags) \
 			-include $(android_config_h) \
@@ -104,20 +103,12 @@ TARGET_GLOBAL_CFLAGS += \
 $(combo_2nd_arch_prefix)TARGET_GLOBAL_CFLAGS += -Wno-psabi
 
 $(combo_2nd_arch_prefix)TARGET_GLOBAL_LDFLAGS += \
-			-Wl,-z,noexecstack \
-			-Wl,-z,relro \
-			-Wl,-z,now \
-			-Wl,--build-id=md5 \
-			-Wl,--warn-shared-textrel \
-			-Wl,--fatal-warnings \
-			-Wl,--icf=safe \
-			-Wl,--hash-style=gnu \
+			-Wl,--hash-style=both \
 			$(arch_variant_ldflags)
 
 # More flags/options can be added here
 $(combo_2nd_arch_prefix)TARGET_RELEASE_CFLAGS := \
 			-DNDEBUG \
-			\
 			-Wstrict-aliasing=2 \
 
 libc_root := bionic/libc
