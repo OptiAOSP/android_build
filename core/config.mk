@@ -674,7 +674,7 @@ endif
 #
 # sgrax     is the opposite of xargs.  It takes the list of args and puts them
 #           on each line for sort to process.
-# sort -g   is a numeric sort, so 1 2 3 10 instead of 1 10 2 3.
+# sort   is a numeric sort, so 1 2 3 10 instead of 1 10 2 3.
 
 # Numerically sort a list of numbers
 # $(1): the list of numbers to be sorted
@@ -682,7 +682,7 @@ define numerically_sort
 $(shell function sgrax() { \
     while [ -n "$$1" ] ; do echo $$1 ; shift ; done \
     } ; \
-    ( sgrax $(1) | sort -g ) )
+    ( sgrax $(1) | sort ) )
 endef
 
 TARGET_AVAILABLE_SDK_VERSIONS := $(call numerically_sort,\
