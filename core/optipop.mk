@@ -830,7 +830,11 @@ GRAPHITE_FLAGS := \
 
 LOCAL_DONT_USE_GCC52 := \
 	$(LIBC) \
-	libm
+	coremark \
+	coremark_arm \
+	coremark_thumb
+
+#	libm
 
 LOCAL_FORCE_GCC48 := \
 
@@ -886,6 +890,9 @@ LOCAL_HARDFLOAT := \
 
 LOCAL_DISABLE_LTO := \
 	$(LIBC) \
+	coremark \
+	coremark_arm \
+	coremark_thumb \
 	libstdc++ \
 	$(RS_LIBRARIES) \
 	$(LOCAL_HARDFLOAT) \

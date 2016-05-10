@@ -401,8 +401,6 @@ endif
 #  FORCE GCC 5.3   #
 ####################
 
-LOCAL_FORCE_GCC53 := libm
-
 # Force GCC 5.3 for modules from list LOCAL_FORCE_GCC53
 
 ifeq ($(LOCAL_IS_HOST_MODULE),)
@@ -564,6 +562,8 @@ $($(combo_2nd_arch_prefix)LTO_CFLAGS) -Wl,-flto
 ifneq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
 
   #$(warning enabled LTO for $(LOCAL_MODULE))
+  #$(warning LTO_CFLAGS=$(LTO_CFLAGS))
+  #$(warning LTO_LDFLAGS=$(LTO_LDFLAGS))
   ifdef LOCAL_CFLAGS
     LOCAL_CONLYFLAGS += $(LTO_CFLAGS)
   else
@@ -736,13 +736,13 @@ my_generated_sources := $(LOCAL_GENERATED_SOURCES)
 # MinGW spits out warnings about -fPIC even for -fpie?!) being ignored because
 # all code is position independent, and then those warnings get promoted to
 # errors.
-ifndef USE_MINGW
-ifeq ($(LOCAL_MODULE_CLASS),EXECUTABLES)
-my_cflags += -fpie
-else
-my_cflags += -fPIC
-endif
-endif
+#ifndef USE_MINGW
+#ifeq ($(LOCAL_MODULE_CLASS),EXECUTABLES)
+#my_cflags += -fpie
+#else
+#my_cflags += -fPIC
+#endif
+#endif
 
 my_src_files += $(LOCAL_SRC_FILES_$($(my_prefix)$(LOCAL_2ND_ARCH_VAR_PREFIX)ARCH)) $(LOCAL_SRC_FILES_$(my_32_64_bit_suffix))
 my_shared_libraries += $(LOCAL_SHARED_LIBRARIES_$($(my_prefix)$(LOCAL_2ND_ARCH_VAR_PREFIX)ARCH)) $(LOCAL_SHARED_LIBRARIES_$(my_32_64_bit_suffix))
@@ -1757,3 +1757,9 @@ endif
 
 # Make sure export_includes gets generated when you are running mm/mmm
 $(LOCAL_BUILT_MODULE) : | $(export_includes)
+
+ifneq ($(LOCAL_REPORT_FLAGS),)
+        $(warning $(LOCAL_MODULE) is built with CFLAGS=$(TARGET_GLOBAL_CFLAGS) \
+                  $(TARGET_thumb_CFLAGS) $(my_cflags) and my_ldflags=$(my_ldflags))
+
+endif
