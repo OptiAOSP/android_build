@@ -1339,6 +1339,7 @@ LOCAL_DISABLE_LTO := \
 
 LOCAL_FORCE_ARM_EXCLUSION_LIST := \
 	libUMP \
+	libspeexresampler \
 	whetstone_thumb \
 	libncurses \
 	libutils \
@@ -1388,14 +1389,62 @@ FFAST_MATH_FLAGS := -ffast-math -fno-finite-math-only -ftrapping-math -fno-assoc
 # UNSAFE LOOP OPTIMIZATIONS #
 #############################
 
-LOCAL_DISABLE_UNSAFE_LOOPS_OPTIMIZATIONS := \
+LOCAL_DISABLE_UNSAFE_LOOPS_OPTIMIZATIONS := 
 
 #################################
 # END UNSAFE LOOP OPTIMIZATIONS #
 #################################
 
+TEST_JUNK := \
+libF77blasV8 \
+libRSSupport \
+tcpdump \
+init \
+adbd \
+healthd \
+bu \
+libspeexresampler \
+libkeymaster1 \
+brctl \
+libswscale \
+libwebrtc_audio_preprocessing \
+libUMP \
+ltrace \
+libril
+
 
 LOCAL_ENABLE_GOOGLE_OPTIMIZATIONS := \
-libbase \
-libziparchive \
-linker
+ linker \
+ libbase \
+ libziparchive \
+ libpcap \
+ libsquashfs_utils \
+ init \
+ fs_mgr \
+ libinit \
+ libfs_mgr \
+ libelf \
+ ltrace \
+ libprotobuf-c-nano-enable_malloc \
+ libril \
+ rild  \
+ librilutils \
+ libminui \
+ healthd \
+ healthd.montblanc \
+ libhealthd.montblanc \
+ libhealthd.default \
+ libhealthd.qcom \
+ recovery \
+ libminipigz_static \
+ pigz \
+ libminzip \
+ libminiunz_static \
+ libtar \
+ bu_recovery \
+
+# libbridge \
+# brctl
+
+# libswscale
+
