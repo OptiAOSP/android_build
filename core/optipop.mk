@@ -887,8 +887,6 @@ LOCAL_HARDFLOAT := \
 ##########################
 
 LOCAL_DISABLE_LTO := \
-	$(LIBC) \
-	libstdc++ \
 	libjemalloc_jet \
 	$(RS_LIBRARIES) \
 	$(LOCAL_HARDFLOAT) \
@@ -947,7 +945,6 @@ LOCAL_DISABLE_LTO := \
 	libminshacrypt \
 	libpcre \
 	libmincrypt \
-	libcutils \
 	tst_str_parms \
 	mkfs.f2fs \
 	exfat-fuse \
@@ -957,9 +954,6 @@ LOCAL_DISABLE_LTO := \
 	libexfat_fsck \
 	libexfat_mkfs \
 	mount.exfat_static \
-	libutils \
-        libsysutils \
-        liblogwrap \
         libf2fs_sparseblock \
         libcrypto \
         libsoftkeymaster \
@@ -971,18 +965,12 @@ LOCAL_DISABLE_LTO := \
         libbatteryservice \
         libext2_blkid \
         libext2_uuid_static \
-        liblz4-static \
-        libsparse_static \
-        libz \
-	libbz \
-	libziparchive \
 	bluetooth.default \
 	libbt-vendor \
 	bdtest \
 	libbt-hci \
 	libosi \
 	ositests \
-	audio.a2dp.default \
 	libbt-brcm_stack \
 	libbt-utils \
 	libbt-brcm_gki \
@@ -1008,16 +996,8 @@ LOCAL_DISABLE_LTO := \
 	libdumpstate.default \
 	libtinyxml2 \
 	libsfntly \
-	healthd \
 	mkfs.f2fs \
-	adbd \
-	init \
-	libbase \
-	libinit \
-	libdl \
-	libjemalloc \
 	libselinux \
-	libcutils \
 	libext2_profile \
 	e2fsck \
 	recovery_e2fsck \
@@ -1043,8 +1023,6 @@ LOCAL_DISABLE_LTO := \
 	resize2fs_static \
 	libadf \
 	libminui \
-	liblogwrap \
-	liblog \
 	libfs_mgr \
 	third_party_libvpx_libvpx_gyp \
 	libvpx_asm_offsets_vp8 \
@@ -1155,10 +1133,7 @@ LOCAL_DISABLE_LTO := \
 	libdrmclearkeyplugin \
 	bash \
 	dexdump \
-	pigz \
 	libzopfli \
-	libminipigz \
-	libpigz \
 	lsof \
 	liblsof \
 	busybox \
@@ -1171,7 +1146,6 @@ LOCAL_DISABLE_LTO := \
 	vdc \
 	libminivold \
 	minivold \
-	libstdc \
 	libdiskconfig \
 	diskconfig \
 	libmedia_helper \
@@ -1203,27 +1177,7 @@ LOCAL_DISABLE_LTO := \
 	libaudiopreprocessing \
 	libeffectproxy \
 	libldnhncr \
-	libmusicbundle \
-	libreverb \
-	libvisualizer \
-	libdownmix \
-	libGLES_trace \
 	liblzf	\
-	libLLVM \
-	llvm-cov \
-	llvm-link \
-	llvm-nm \
-	llvm-extract \
-	llvm-diff \
-	llc \
-	llvm-lto \
-	llvm-config \
-	llvm-c-test \
-	llvm-ar \
-	obj2yaml \
-	llvm-bcanalyzer \
-	llvm-mcmarkup \
-	llvm-readobj \
 	libprotobuf-java-2.3.0-micro \
 	libprotobuf-java-2.3.0-lite \
 	libprotobuf-cpp-2.3.0-lite \
@@ -1249,7 +1203,6 @@ LOCAL_DISABLE_LTO := \
 	dhdutil \
 	lib_driver_cmd_bcmdhd \
 	libwifi-hal-bcm \
-	libeffects \
 	libdex \
         libbuiltins \
         libglob \
