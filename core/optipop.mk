@@ -895,19 +895,13 @@ LOCAL_DISABLE_LTO := \
 	$(LOCAL_HARDFLOAT) \
 	$(V8_LIBRARIES) \
 	$(WIFI_LIBRARIES) \
-	libavcodec \
-        libm \
-        libw \
 	libbinder \
 	libutils \
 	libhealthd.$(TARGET_BOARD_PLATFORM) \
-	audioflinger \
 	libxz \
 	libscheduling_policy \
 	libserviceutility \
 	skia_skia_library_gyp \
-	libasound \
-	libaudioresampler \
 	ui_gfx_gfx_geometry_gyp_intermediates \
 	iw \
 	mkntfs \
@@ -927,14 +921,8 @@ LOCAL_DISABLE_LTO := \
 	libandroid \
 	tcpdump \
 	libandroid_servers \
-	libpdfium \
 	libjsmn \
 	libandroidfw \
-	libpdfiumcore \
-	libskia \
-	libgif \
-	libwebp-encode \
-	libwebp-decode \
 	libntfs-3g \
 	libnl \
 	lubpcap \
@@ -988,9 +976,7 @@ LOCAL_DISABLE_LTO := \
         libsparse_static \
         libz \
 	libbz \
-	libpixelflinger \
 	libziparchive \
-	libEGL \
 	bluetooth.default \
 	libbt-vendor \
 	bdtest \
@@ -1003,12 +989,6 @@ LOCAL_DISABLE_LTO := \
 	libbt-brcm_gki \
 	libbt-brcm_bta \
 	librtp_jni \
-	$(AV_MEDIA_LIBRARIES) \
-	$(STAGEFRIGHT_LIBRARIES) \
-	$(WILHELM_LIBRARIES) \
-	omx_tests \
-	libgsm \
-	libopus \
 	libvpx \
 	libvpx_test \
 	libwebm \
@@ -1027,14 +1007,8 @@ LOCAL_DISABLE_LTO := \
 	libbt-qcom_sbc_decoder \
 	libosi \
 	libdumpstate.default \
-	libwebp-decode \
-	libwebp-encode \
-	libhevcdec \
-	hevcdec \
-	libFraunhoferAAC \
 	libtinyxml2 \
 	libsfntly \
-	libc \
 	healthd \
 	mkfs.f2fs \
 	adbd \
@@ -1042,12 +1016,6 @@ LOCAL_DISABLE_LTO := \
 	libbase \
 	libinit \
 	libdl \
-        libart \
-        libart-compiler \
-        libartd \
-        libartd-compiler \
-        libart-disassembler \
-        libartd-disassembler \
 	libjemalloc \
 	libselinux \
 	libcutils \
@@ -1079,7 +1047,6 @@ LOCAL_DISABLE_LTO := \
 	liblogwrap \
 	liblog \
 	libfs_mgr \
-	libvpx \
 	third_party_libvpx_libvpx_gyp \
 	libvpx_asm_offsets_vp8 \
 	libvpx_asm_offsets_vpx_scale \
