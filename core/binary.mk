@@ -716,6 +716,27 @@ endif
 # END UNSAFE LOOP OPTIMIZATIONS #
 #################################
 
+#################################
+#  Google default optimizations #
+#################################
+
+ifneq ($(filter $(LOCAL_ENABLE_GOOGLE_OPTIMIZATIONS), $(LOCAL_MODULE)),)
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+
+$(warning module $(LOCAL_MODULE) is using Google default optimizations )
+
+LOCAL_CPPFLAGS += -ffunction-sections
+LOCAL_CFLAGS   += -ffunction-sections
+
+endif
+
+endif
+
+####################################
+# END Google default optimizations #
+####################################
+
+
 #####
 # The following LOCAL_ variables will be modified in this file.
 # Because the same LOCAL_ variables may be used to define modules for both 1st arch and 2nd arch,
@@ -1759,7 +1780,15 @@ endif
 $(LOCAL_BUILT_MODULE) : | $(export_includes)
 
 ifneq ($(LOCAL_REPORT_FLAGS),)
-        $(warning $(LOCAL_MODULE) is built with CFLAGS=$(TARGET_GLOBAL_CFLAGS) \
-                  $(TARGET_thumb_CFLAGS) $(my_cflags) and my_ldflags=$(my_ldflags))
+            $(warning $(LOCAL_MODULE) is built with TARGET_GLOBAL_CFLAGS=$(my_target_global_cflags) )
+            $(warning TARGET_GLOBAL_CPPFLAGS=$(my_target_global_cppflags) )
+            $(warning TARGET_thumb_CFLAGS=$(normal_objects_cflags) )
+            $(warning LOCAL_CFLAGS=$(my_cflags) )
+            $(warning LOCAL_CONLYFLAGS=$(my_conlyflags) )
+            $(warning LOCAL_CPPFLAGS=$(my_cppflags) )
+
+
+#        $(warning $(LOCAL_MODULE) is built with CFLAGS=$(TARGET_GLOBAL_CFLAGS) \
+#                 $(TARGET_thumb_CFLAGS) $(my_cflags) and my_ldflags=$(my_ldflags))
 
 endif
