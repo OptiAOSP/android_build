@@ -16,6 +16,7 @@
 
 LIBC := \
 	libc \
+        libc_openbsd_ndk \
 	libc_hard \
 	libc_bionic \
 	libc_gdtoa \
@@ -890,10 +891,10 @@ LOCAL_HARDFLOAT := \
 
 LOCAL_DISABLE_LTO := \
 	$(LIBC) \
-	coremark \
-	coremark_arm \
-	coremark_thumb \
+	linker \
+	libbase \
 	libstdc++ \
+	libjemalloc_jet \
 	$(RS_LIBRARIES) \
 	$(LOCAL_HARDFLOAT) \
 	$(V8_LIBRARIES) \
@@ -1393,3 +1394,8 @@ LOCAL_DISABLE_UNSAFE_LOOPS_OPTIMIZATIONS := \
 # END UNSAFE LOOP OPTIMIZATIONS #
 #################################
 
+
+LOCAL_ENABLE_GOOGLE_OPTIMIZATIONS := \
+libbase \
+libziparchive \
+linker
