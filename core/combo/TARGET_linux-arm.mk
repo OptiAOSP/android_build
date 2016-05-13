@@ -70,11 +70,15 @@ $(combo_2nd_arch_prefix)TARGET_STRIP := $($(combo_2nd_arch_prefix)TARGET_TOOLS_P
 $(combo_2nd_arch_prefix)TARGET_NO_UNDEFINED_LDFLAGS := -Wl,--no-undefined
 
 $(combo_2nd_arch_prefix)TARGET_arm_CFLAGS :=    -O2 \
+                                                -fno-tree-vectorize \
+						-fomit-frame-pointer \
                                                 -fno-strict-aliasing
 
 # Modules can choose to compile some source as thumb.
 $(combo_2nd_arch_prefix)TARGET_thumb_CFLAGS :=  -mthumb \
                         -O2 \
+                        -fno-tree-vectorize \
+			-fomit-frame-pointer \
                         -fno-strict-aliasing
 
 android_config_h := $(call select-android-config-h,linux-arm)
