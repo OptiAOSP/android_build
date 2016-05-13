@@ -305,6 +305,7 @@ ifneq ($(FORCE_GCC52),true)
 ifeq ($(LOCAL_IS_HOST_MODULE),)
 ifneq ($(LOCAL_CLANG),true)
 
+ifeq ($(filter $(LOCAL_FORCE_GCC53),$(LOCAL_MODULE)),)
 ifeq ($(filter $(LOCAL_FORCE_GCC52),$(LOCAL_MODULE)),)
 ifeq ($(filter $(LOCAL_FORCE_GCC48),$(LOCAL_MODULE)),)
 ifneq ($(filter $(LOCAL_FORCE_GCC49),$(LOCAL_MODULE)),)
@@ -314,6 +315,7 @@ $(warning using GCC 4.9 for $(LOCAL_MODULE))
 LOCAL_CC := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-gcc
 LOCAL_CXX := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-g++
  
+endif
 endif
 endif
 endif
@@ -338,6 +340,7 @@ ifneq ($(FORCE_GCC52),true)
 ifeq ($(LOCAL_IS_HOST_MODULE),)
 ifneq ($(LOCAL_CLANG),true)
 
+ifeq ($(filter $(LOCAL_FORCE_GCC53),$(LOCAL_MODULE)),)
 ifeq ($(filter $(LOCAL_FORCE_GCC52),$(LOCAL_MODULE)),)
 ifneq ($(filter $(LOCAL_FORCE_GCC48),$(LOCAL_MODULE)),)
 ifeq ($(filter $(LOCAL_FORCE_GCC49),$(LOCAL_MODULE)),)
@@ -348,6 +351,7 @@ $(warning using GCC 4.8 for $(LOCAL_MODULE))
 LOCAL_CC := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/bin/arm-linux-androideabi-gcc
 LOCAL_CXX := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/bin/arm-linux-androideabi-g++
  
+endif
 endif
 endif
 endif
@@ -372,6 +376,7 @@ ifneq ($(FORCE_GCC52),true)
 ifeq ($(LOCAL_IS_HOST_MODULE),)
 ifneq ($(LOCAL_CLANG),true)
 
+ifeq ($(filter $(LOCAL_FORCE_GCC53),$(LOCAL_MODULE)),)
 ifneq ($(filter $(LOCAL_FORCE_GCC52),$(LOCAL_MODULE)),)
 ifeq ($(filter $(LOCAL_FORCE_GCC48),$(LOCAL_MODULE)),)
 ifeq ($(filter $(LOCAL_FORCE_GCC49),$(LOCAL_MODULE)),)
@@ -384,10 +389,41 @@ LOCAL_CXX := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.2/bin/ar
 endif
 endif
 endif
+endif
 
 endif
 endif
 
+endif
+
+
+####################
+#  FORCE GCC 5.3   #
+####################
+
+LOCAL_FORCE_GCC53 := libm
+
+# Force GCC 5.3 for modules from list LOCAL_FORCE_GCC53
+
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+ifneq ($(LOCAL_CLANG),true)
+
+ifneq ($(filter $(LOCAL_FORCE_GCC53),$(LOCAL_MODULE)),)
+ifeq ($(filter $(LOCAL_FORCE_GCC52),$(LOCAL_MODULE)),)
+ifeq ($(filter $(LOCAL_FORCE_GCC48),$(LOCAL_MODULE)),)
+ifeq ($(filter $(LOCAL_FORCE_GCC49),$(LOCAL_MODULE)),)
+
+$(warning using GCC 5.3 for $(LOCAL_MODULE))
+
+LOCAL_CC := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.3/bin/arm-linux-androideabi-gcc
+LOCAL_CXX := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.3/bin/arm-linux-androideabi-g++
+
+endif
+endif
+endif
+endif
+
+endif
 endif
 
 
@@ -406,6 +442,7 @@ $(warning not using GCC 5.2 for $(LOCAL_MODULE))
 
 else
 
+ifeq ($(filter $(LOCAL_FORCE_GCC53),$(LOCAL_MODULE)),)
 ifeq ($(filter $(LOCAL_FORCE_GCC48),$(LOCAL_MODULE)),)
 ifeq ($(filter $(LOCAL_FORCE_GCC49),$(LOCAL_MODULE)),)
 
@@ -413,6 +450,8 @@ ifeq ($(filter $(LOCAL_FORCE_GCC49),$(LOCAL_MODULE)),)
 LOCAL_CC := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.2/bin/arm-linux-androideabi-gcc
 LOCAL_CXX := $(TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.2/bin/arm-linux-androideabi-g++
 
+
+endif
 
 endif
 endif

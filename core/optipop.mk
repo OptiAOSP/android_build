@@ -829,6 +829,8 @@ GRAPHITE_FLAGS := \
 ####################
 
 LOCAL_DONT_USE_GCC52 := \
+	$(LIBC) \
+	libm
 
 LOCAL_FORCE_GCC48 := \
 
@@ -1328,6 +1330,8 @@ LOCAL_DISABLE_LTO := \
 #############
 
 LOCAL_FORCE_ARM_EXCLUSION_LIST := \
+	libUMP \
+	whetstone_thumb \
 	libncurses \
 	libutils \
 	libhwui \
