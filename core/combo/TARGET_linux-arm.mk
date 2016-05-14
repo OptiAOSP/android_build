@@ -107,7 +107,7 @@ TARGET_GLOBAL_CFLAGS += \
 $(combo_2nd_arch_prefix)TARGET_GLOBAL_CFLAGS += -Wno-psabi
 
 $(combo_2nd_arch_prefix)TARGET_GLOBAL_LDFLAGS += \
-			-Wl,--hash-style=both \
+			-Wl,--hash-style=gnu \
 			$(arch_variant_ldflags)
 
 # More flags/options can be added here

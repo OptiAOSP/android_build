@@ -644,6 +644,32 @@ endif
 
 endif
 
+
+ifneq ($(FORCE_ARM),true)
+
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+ifneq ($(LOCAL_CLANG),true)
+
+  ifneq (1,$(words $(filter $(LOCAL_FORCE_ARM_MODULES_LIST),$(LOCAL_MODULE))))
+    ifdef LOCAL_CFLAGS
+      LOCAL_CONLYFLAGS += -marm
+    else
+      LOCAL_CONLYFLAGS := -marm
+    endif
+    ifdef LOCAL_CPPFLAGS
+      LOCAL_CPPFLAGS += -marm
+    else
+      LOCAL_CPPFLAGS := -marm
+    endif
+  endif
+
+endif
+endif
+
+endif
+
+
+
 #################
 # END FORCE ARM #
 #################
