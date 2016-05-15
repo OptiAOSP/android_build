@@ -896,8 +896,12 @@ LOCAL_HARDFLOAT := \
 
 
 LOCAL_DISABLE_LTO := \
-	$(LIBC) \
 	$(STAGEFRIGHT_LIBRARIES) \
+	su \
+	micro_bench_static \
+	updater \
+	applypatch_static \
+	libc_nolto \
 	libstagefright \
 	libmediaplayerservice \
 	libwebrtc_resampler \
@@ -933,7 +937,6 @@ LOCAL_DISABLE_LTO := \
 	libFLAC \
 	libmedia_helper \
 	libavextensions \
-	libm \
 	libbase \
 	libziparchive \
 	libstdc++ \
