@@ -1376,7 +1376,7 @@ LOCAL_DONT_FORCE_FFAST_MATH := \
 
 LOCAL_DISABLE_SINGLE_PRECISION := \
 
-FFAST_MATH_FLAGS := -ffast-math -ftree-vectorize -fno-finite-math-only -ftrapping-math -fno-associative-math
+FFAST_MATH_FLAGS := -ffast-math -fno-finite-math-only -ftrapping-math -fno-associative-math
 
 ########################
 # END FORCE FFAST-MATH #
