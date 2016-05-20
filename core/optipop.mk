@@ -918,7 +918,6 @@ LOCAL_FORCE_GCC52 := \
 	libRSSupport \
 	libaudioresampler \
 	libskia \
-	libpac \
 	libEGL
 
 #######################
@@ -971,6 +970,8 @@ LOCAL_DISABLE_LTO := \
 	linker \
 	libbase \
 	libziparchive \
+	libc_nolto \
+	micro_bench_static
 
 ##############################
 # END Link Time Optimization #
