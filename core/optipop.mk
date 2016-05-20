@@ -1064,6 +1064,8 @@ TEST := \
 	libbt-hci \
 	libosi \
 	ositests \
+        add-property-tag \
+        check-lostfound \
 	audio.a2dp.default \
 	libbt-brcm_stack \
 	libbt-utils \
@@ -1359,8 +1361,6 @@ TEST := \
         libedify \
         uncrypt \
         libvoldclient \
-        add-property-tag \
-        check-lostfound \
         libminadbd \
         libapplypatch \
         applypatch \
@@ -1566,7 +1566,6 @@ LOCAL_NO_CLANG := \
       fortify1-tests-clang \
       fortify2-tests-clang \
       bionic-compile-time-tests-clang++ \
-      libc_cxa \
       libfusesideload \
       recovery \
       libverifier \
@@ -1588,6 +1587,172 @@ LOCAL_NO_CLANG := \
       imgdiff \
       libbnnmdata_jni \
       librscpptest_jni \
+      libprofile_rt \
+      libasan \
+      libclang_rt.asan-arm-android \
+      libasan_noinst_test \
+      asan_test \
+      libasan_cxx \
+      libjavacrypto \
+      libconscrypt_jni \
+      libfuse \
+      libfuse_static \
+      libgtest_host \
+      libgtest_main_host \
+      libgtest \
+      libgtest_main \
+      libc++_static \
+      libc++ \
+      libunwind_llvm \
+      libc++abi \
+      libexif \
+      libpng \
+      pngtest \
+      libvterm \
+      libxml2 \
+      macho-dump \
+      obj2yaml \
+      opt \
+      verify-uselistorder \
+      yaml2obj \
+      count \
+      FileCheck \
+      not \
+      sh \
+      libmksh_static \
+      libopenfst-gnustl-rtti \
+      libscrypt_static \
+      scrypt_test \
+      libtoybox \
+      toybox-instlist \
+      toybox \
+      libtoybox_driver \
+      toybox_static \
+      libvixl \
+      libvixld \
+      vixl-test-runner \
+      stagefright \
+      record \
+      recordvideo \
+      audioloop \
+      stream \
+      sf2 \
+      codec \
+      mediafilter \
+      muxer \
+      libmedia_helper \
+      libmediaplayerservice \
+      DrmSessionManager_test \
+      libstagefright_nuplayer \
+      libstagefright \
+      libstagefright_mediafilter \
+      libstagefright_rtsp \
+      SurfaceMediaSource_test \
+      Utils_test \
+      MediaCodecListOverrides_test \
+      libstagefright_mpeg2ts \
+      libstagefright_timedtext \
+      libstagefright_yuv \
+      libstagefright_http_support \
+      libstagefright_amrwbenc \
+      libstagefright_soft_amrwbenc \
+      libstagefright_wfd \
+      libstagefright_httplive \
+      libstagefright_id3 \
+      testid3 \
+      libstagefright_color_conversion \
+      libstagefright_foundation \
+      libstagefright_omx \
+      omx_tests \
+      FrameDropper_test \
+      libstagefright_matroska \
+      libstagefright_webm \
+      libresourcemanagerservice \
+      ResourceManagerService_test \
+      ServiceLog_test \
+      app_process__asan \
+      libbcc \
+      libbcinfo \
+      bcinfo \
+      bcc_compat \
+      bcc_strip_attr \
+      bcc \
+      libbccCore \
+      libbccRenderscript \
+      libbccSupport \
+      libmcldADT \
+      libmcldCore \
+      libmcldFragment \
+      libmcldLD \
+      libmcldLDVariant \
+      libmcldMC \
+      libmcldObject \
+      libmcldScript \
+      libmcldSupport \
+      libmcldTarget \
+      libmcldAArch64Target \
+      libmcldAArch64Info \
+      libmcldMipsTarget \
+      libmcldMipsInfo \
+      libmcldX86Target \
+      libmcldX86Info \
+      ld.mc \
+      libinstalld \
+      installd \
+      libgui \
+      libgui_test \
+      libui \
+      libinputflingerhost \
+      inputflinger \
+      libsurfaceflinger \
+      surfaceflinger \
+      libsurfaceflinger_ddmconnection \
+      libgemmdata \
+      libhellocomputendk \
+      librsjni \
+      libinput_evdev \
+      input.evdev.default \
+      libinput_evdevtests \
+      libjavacore \
+      libjavacoretests \
+      libnativehelper \
+      libnativehelper_compat_libc++ \
+      JniInvocation_test \
+      liblatinime_host_static_for_unittests \
+      liblatinime_host_unittests \
+      liblatinime_target_static_for_unittests \
+      liblatinime_target_unittests \
+      libbase \
+      libbase_test \
+      debuggerd \
+      libnativebridge \
+      libnativebridge-dummy \
+      libnativebridge2-dummy \
+      CodeCacheCreate_test \
+      CodeCacheExists_test \
+      CompleteFlow_test \
+      InvalidCharsNativeBridge_test \
+      NativeBridge2Signal_test \
+      NativeBridgeVersion_test \
+      NeedsNativeBridge_test \
+      PreInitializeNativeBridge_test \
+      PreInitializeNativeBridgeFail1_test \
+      PreInitializeNativeBridgeFail2_test \
+      ReSetupNativeBridge_test \
+      UnavailableNativeBridge_test \
+      ValidNameNativeBridge_test \
+      libpixelflinger \
+      libperfprofdutils \
+      perfprofd \
+      ndc \
+      libvold \
+      vold \
+      vdc \
+      secdiscard \
+      libminivold_static
+
+# to try
+TO_TRY := \
       libblas \
       libblasV8 \
       libclangAnalysis \
@@ -1615,33 +1780,20 @@ LOCAL_NO_CLANG := \
       clang \
       libclangLibclang \
       clang-tblgen \
-      libcompiler_rt-extras \
-      libcompiler_rt \
-      libprofile_rt \
-      libasan \
-      libclang_rt.asan-arm-android \
-      libasan_noinst_test \
-      asan_test \
-      libasan_cxx \
-      libjavacrypto \
-      libconscrypt_jni \
-      libF77blas \
-      libF77blasV8 \
-      libfuse \
-      libfuse_static \
-      libgtest_host \
-      libgtest_main_host \
-      libgtest \
-      libgtest_main \
-      libc++_static \
-      libc++ \
-      libunwind_llvm \
-      libc++abi \
-      libexif \
-      libpng \
-      pngtest \
-      libvterm \
-      libxml2 \
+      libmcldARMTarget \
+      libmcldARMInfo \
+      libjni_latinime_common_static \
+      libjni_latinime \
+      libslang \
+      llvm-rs-as \
+      llvm-rs-cc \
+      libLLVMBitWriter_2_9_func \
+      libLLVMBitWriter_2_9 \
+      libLLVMBitWriter_3_2 \
+      libLLVMBitReader_2_7 \
+      libLLVMBitReader_3_0 \
+      libLLVMWrap \
+      llvm-tblgen \
       libLLVM \
       libLLVMAnalysis \
       libLLVMipa \
@@ -1735,139 +1887,9 @@ LOCAL_NO_CLANG := \
       llvm-rtdyld \
       llvm-size \
       llvm-symbolizer \
-      macho-dump \
-      obj2yaml \
-      opt \
-      verify-uselistorder \
-      yaml2obj \
-      count \
-      FileCheck \
-      not \
-      llvm-tblgen \
-      sh \
-      libmksh_static \
-      libopenfst-gnustl-rtti \
-      libscrypt_static \
-      scrypt_test \
-      libtoybox \
-      toybox-instlist \
-      toybox \
-      libtoybox_driver \
-      toybox_static \
-      libvixl \
-      libvixld \
-      vixl-test-runner \
-      stagefright \
-      record \
-      recordvideo \
-      audioloop \
-      stream \
-      sf2 \
-      codec \
-      mediafilter \
-      muxer \
-      libmedia_helper \
-      libmediaplayerservice \
-      DrmSessionManager_test \
-      libstagefright_nuplayer \
-      libstagefright \
-      libstagefright_mediafilter \
-      libstagefright_rtsp \
-      SurfaceMediaSource_test \
-      Utils_test \
-      MediaCodecListOverrides_test \
-      libstagefright_mpeg2ts \
-      libstagefright_timedtext \
-      libstagefright_yuv \
-      libstagefright_http_support \
-      libstagefright_amrwbenc \
-      libstagefright_soft_amrwbenc \
-      libstagefright_wfd \
-      libstagefright_httplive \
-      libstagefright_id3 \
-      testid3 \
-      libstagefright_color_conversion \
-      libstagefright_foundation \
-      libstagefright_omx \
-      omx_tests \
-      FrameDropper_test \
-      libstagefright_matroska \
-      libstagefright_webm \
-      libresourcemanagerservice \
-      ResourceManagerService_test \
-      ServiceLog_test \
-      app_process__asan \
-      libbcc \
-      libbcinfo \
-      bcinfo \
-      libLLVMBitReader_2_7 \
-      libLLVMBitReader_3_0 \
-      libLLVMWrap \
-      bcc_compat \
-      bcc_strip_attr \
-      bcc \
-      libbccCore \
-      libbccRenderscript \
-      libbccSupport \
-      libmcldADT \
-      libmcldCore \
-      libmcldFragment \
-      libmcldLD \
-      libmcldLDVariant \
-      libmcldMC \
-      libmcldObject \
-      libmcldScript \
-      libmcldSupport \
-      libmcldTarget \
-      libmcldARMTarget \
-      libmcldARMInfo \
-      libmcldAArch64Target \
-      libmcldAArch64Info \
-      libmcldMipsTarget \
-      libmcldMipsInfo \
-      libmcldX86Target \
-      libmcldX86Info \
-      ld.mc \
-      libslang \
-      llvm-rs-as \
-      llvm-rs-cc \
-      libLLVMBitWriter_2_9_func \
-      libLLVMBitWriter_2_9 \
-      libLLVMBitWriter_3_2 \
-      libinstalld \
-      installd \
-      libgui \
-      libgui_test \
-      libui \
-      libinputflingerhost \
-      inputflinger \
-      libsurfaceflinger \
-      surfaceflinger \
-      libsurfaceflinger_ddmconnection \
-      libRSDriver \
-      libRS \
-      libRSCpuRef \
-      libRScpp \
-      libRScpp_static \
-      libgemmdata \
-      libhellocomputendk \
-      libRSSupportIO \
-      librsjni \
-      libRSSupport \
-      libinput_evdev \
-      input.evdev.default \
-      libinput_evdevtests \
-      libjavacore \
-      libjavacoretests \
-      libnativehelper \
-      libnativehelper_compat_libc++ \
-      JniInvocation_test \
-      libjni_latinime_common_static \
-      libjni_latinime \
-      liblatinime_host_static_for_unittests \
-      liblatinime_host_unittests \
-      liblatinime_target_static_for_unittests \
-      liblatinime_target_unittests \
+      libc_cxa \
+      libF77blas \
+      libF77blasV8 \
       libadbd \
       libadb \
       adbd_test \
@@ -1875,37 +1897,18 @@ LOCAL_NO_CLANG := \
       adb_device_tracker_test \
       adb \
       adbd \
-      libbase \
-      libbase_test \
-      debuggerd \
-      libnativebridge \
-      libnativebridge-dummy \
-      libnativebridge2-dummy \
-      CodeCacheCreate_test \
-      CodeCacheExists_test \
-      CompleteFlow_test \
-      InvalidCharsNativeBridge_test \
-      NativeBridge2Signal_test \
-      NativeBridgeVersion_test \
-      NeedsNativeBridge_test \
-      PreInitializeNativeBridge_test \
-      PreInitializeNativeBridgeFail1_test \
-      PreInitializeNativeBridgeFail2_test \
-      ReSetupNativeBridge_test \
-      UnavailableNativeBridge_test \
-      ValidNameNativeBridge_test \
-      libpixelflinger \
+      libcompiler_rt-extras \
+      libcompiler_rt \
+      libnetd_client \
+      netd \
       libsimpleperf \
       simpleperf \
       simpleperf_unit_test \
       libperfprofdcore \
-      libperfprofdutils \
-      perfprofd \
-      libnetd_client \
-      netd \
-      ndc \
-      libvold \
-      vold \
-      vdc \
-      secdiscard \
-      libminivold_static
+      libRSCpuRef \
+      libRSDriver \
+      libRSSupport \
+      libRS \
+      libRScpp \
+      libRScpp_static \
+      libRSSupportIO \
