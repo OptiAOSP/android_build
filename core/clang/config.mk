@@ -69,6 +69,32 @@ CLANG_CONFIG_EXTRA_CFLAGS += \
   -fcolor-diagnostics
 
 CLANG_CONFIG_UNKNOWN_CFLAGS := \
+  -mvectorize-with-neon-double \
+   -mvectorize-with-neon-quad \
+   -fgcse-after-reload \
+   -fgcse-las \
+   -fgcse-sm \
+   -fgraphite \
+   -fgraphite-identity \
+   -fipa-pta \
+   -floop-block \
+   -floop-interchange \
+   -floop-nest-optimize \
+   -floop-parallelize-all \
+   -ftree-parallelize-loops=2 \
+   -ftree-parallelize-loops=4 \
+   -ftree-parallelize-loops=8 \
+   -ftree-parallelize-loops=16 \
+   -floop-strip-mine \
+   -fmodulo-sched \
+   -fmodulo-sched-allow-regmoves \
+   -frerun-cse-after-loop \
+   -frename-registers \
+   -fsection-anchors \
+   -ftree-loop-im \
+   -ftree-loop-ivcanon \
+   -funsafe-loop-optimizations \
+   -fweb \
   -finline-functions \
   -floop-nest-optimize \
   -finline-limit=64 \

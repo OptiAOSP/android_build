@@ -963,20 +963,9 @@ LOCAL_HARDFLOAT := \
 # Link Time Optimization #
 ##########################
 
-LOCAL_DISABLE_LTO := \
-	$(LIBC) \
-	linker \
-	libbase \
-	libstdc++ \
-	libjemalloc_jet \
-	$(RS_LIBRARIES) \
-	$(LOCAL_HARDFLOAT) \
-	$(V8_LIBRARIES) \
-	$(WIFI_LIBRARIES) \
-	libavcodec \
-        libm \
-        libw \
-	libbinder \
+LOCAL_DISABLE_LTO :=
+
+TEST := \
 	libutils \
 	libhealthd.$(TARGET_BOARD_PLATFORM) \
 	audioflinger \
