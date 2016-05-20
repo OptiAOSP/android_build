@@ -823,7 +823,7 @@ ifeq ($(filter $(LOCAL_NO_CLANG),$(LOCAL_MODULE)),)
 
 my_clang := $(strip $(LOCAL_CLANG))
 ifeq ($(my_clang),true) 
-$(warning enabled CLANG for $(LOCAL_MODULE))
+#$(warning enabled CLANG for $(LOCAL_MODULE))
 endif
 
 endif
