@@ -550,7 +550,7 @@ ifeq ($(ENABLE_LTO),true)
 
 LTO_CFLAGS := \
 -flto=jobserver \
--fno-fat-lto-objects \
+-ffat-lto-objects \
 -fuse-linker-plugin \
 -D__LTO__ \
 -funit-at-a-time \
@@ -642,6 +642,23 @@ ifneq ($(LOCAL_CLANG),true)
 endif
 endif
 
+else # FORCE_ARM
+
+  ifeq (1,$(words $(filter $(LOCAL_FORCE_ARM_LIST),$(LOCAL_MODULE))))
+	$(warning using ARM mode for $(LOCAL_MODULE))
+    ifdef LOCAL_CFLAGS
+      LOCAL_CONLYFLAGS += -marm
+    else
+      LOCAL_CONLYFLAGS := -marm
+    endif
+    ifdef LOCAL_CPPFLAGS
+      LOCAL_CPPFLAGS += -marm
+    else
+      LOCAL_CPPFLAGS := -marm
+    endif
+  endif
+  
+
 endif
 
 #################
@@ -681,6 +698,32 @@ endif
 ####################
 #  END  FFAST-MATH #
 ####################
+
+ifeq ($(FTREE_VECTORIZE),true)
+ifeq ($(LOCAL_IS_HOST_MODULE),)
+ifneq ($(filter $(LOCAL_FTREE_VECTORIZE), $(LOCAL_MODULE)),)
+
+FTREE_VECTORIZE_FLAGS := \
+	-ftree-vectorize \
+	-mvectorize-with-neon-double \
+	-mvectorize-with-neon-quad
+
+$(warning using FTREE_VECTORIZE on $(LOCAL_MODULE))
+ifdef LOCAL_CONLYFLAGS
+LOCAL_CONLYFLAGS += $(FTREE_VECTORIZE_FLAGS)
+else
+LOCAL_CONLYFLAGS := $(FTREE_VECTORIZE_FLAGS)
+endif
+
+ifdef LOCAL_CPPFLAGS
+LOCAL_CPPFLAGS +=  $(FTREE_VECTORIZE_FLAGS)
+else
+LOCAL_CPPFLAGS :=  $(FTREE_VECTORIZE_FLAGS)
+endif
+
+endif
+endif
+endif
 
 #############################
 # UNSAFE LOOP OPTIMIZATIONS #

@@ -335,6 +335,83 @@ WIFI_LIBRARIES := \
 	libwifi-service \
 	wifi-service
 
+EXTERNAL_MEDIA_LIBRARIES := \
+      libavcodec \
+      libavdevice \
+      libavfilter \
+      libavformat \
+      libavresample \
+      libavutil \
+      libpostproc \
+      libswresample \
+      libswscale \
+      libFLAC \
+      libgif \
+      libhead \
+      libjhead_jni \
+      libexif \
+      libgsm \
+      libhevcdec \
+      hevcdec \
+      libmpeg2dec \
+      mpeg2dec \
+      libogg \
+      libopus \
+      libvorbis \
+      libwebm \
+      libvpx \
+      libvpx \
+      libyuv_static \
+      mp4parser \
+      libpdfiumcore \
+      libpdfium \
+      libzopfli \
+      skia_android \
+      hello_skia_ndk \
+      libsonivox \
+      libspeex \
+      libspeexresampler \
+      libstlport \
+      libstlport_static \
+      libttscompat \
+      libttspico_engine \
+      libttspico \
+      libtinyalsa \
+      tinyplay \
+	
+
+EXTERNAL_MISC_LIBRARIES := \
+      libc++_static \
+      libc++ \
+      libc++_static \
+      libunwind_llvm \
+      libc++abi \
+      libc++abi \
+      7z \
+      7zr \
+      7za \
+      lib7z \
+      libminipigz_static \
+      pigz \
+      libsqlite \
+      sqlite3 \
+      libsqlite3_android \
+      libsqlite3_phone_number_utils_test \
+      libtinycompress \
+      unzip \
+      unrar \
+      d8 \
+      libv8 \
+      valgrind \
+      libvixl \
+      libvixld \
+      zip \
+      libz \
+      gzip \
+      minigzip \
+      libjemalloc \
+      libdlmalloc
+
 
 WEBCHROMIUM_STATIC_LIBRARIES := \
     android_webview_android_webview_common_gyp \
@@ -1043,12 +1120,6 @@ LOCAL_DISABLE_LTO := \
 	libbase \
 	libinit \
 	libdl \
-        libart \
-        libart-compiler \
-        libartd \
-        libartd-compiler \
-        libart-disassembler \
-        libartd-disassembler \
 	libjemalloc \
 	libselinux \
 	libcutils \
@@ -1445,3 +1516,61 @@ LOCAL_ENABLE_GOOGLE_OPTIMIZATIONS := \
 
 # libswscale
 
+LOCAL_FORCE_ARM_MODULES_LIST := \
+       $(BIONIC_LIBRARIES) \
+       $(ART_LIBRARIES) \
+       $(WILHELM_LIBRARIES) \
+       $(AV_MEDIA_LIBRARIES) \
+       $(STAGEFRIGHT_LIBRARIES) \
+       $(SYSTEM_CORE_LIBRARIES) \
+       $(V8_LIBRARIES) \
+       $(EXTERNAL_MEDIA_LIBRARIES) \
+       $(EXTERNAL_MISC_LIBRARIES) \
+	libfdlibm \
+       libskia \
+       libGLESv2 \
+       libEGL \
+       libGLESv1_CM \
+       libGLES_android \
+	libsurfaceflinger \
+	surfaceflinger \
+       libui \
+       libgui \
+	libffmpeg_utils  \
+	libffmpeg_extractor \
+	libblas \
+	libF77blas \
+	libblasV8 \
+	libF77blasV8 \
+	libandroid \
+	libandroid_servers \
+	libandroid_runtime \
+
+LOCAL_FTREE_VECTORIZE := \
+	libm \
+	libfdlibm \
+       $(ART_LIBRARIES) \
+       $(WILHELM_LIBRARIES) \
+       $(EXTERNAL_MEDIA_LIBRARIES) \
+       $(AV_MEDIA_LIBRARIES) \
+       $(STAGEFRIGHT_LIBRARIES) \
+       $(V8_LIBRARIES) \
+	libfdlibm \
+       libskia \
+       libGLESv2 \
+       libEGL \
+       libGLESv1_CM \
+       libGLES_android \
+	libsurfaceflinger \
+	surfaceflinger \
+       libui \
+       libgui \
+	libffmpeg_utils  \
+	libffmpeg_extractor \
+	libblas \
+	libF77blas \
+	libblasV8 \
+	libF77blasV8
+
+
+	
