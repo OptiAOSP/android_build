@@ -645,7 +645,7 @@ endif
 else # FORCE_ARM
 
   ifeq (1,$(words $(filter $(LOCAL_FORCE_ARM_LIST),$(LOCAL_MODULE))))
-	$(warning using ARM mode for $(LOCAL_MODULE))
+    #$(warning using ARM mode for $(LOCAL_MODULE))
     ifdef LOCAL_CFLAGS
       LOCAL_CONLYFLAGS += -marm
     else
@@ -708,7 +708,7 @@ FTREE_VECTORIZE_FLAGS := \
 	-mvectorize-with-neon-double \
 	-mvectorize-with-neon-quad
 
-$(warning using FTREE_VECTORIZE on $(LOCAL_MODULE))
+#$(warning using FTREE_VECTORIZE on $(LOCAL_MODULE))
 ifdef LOCAL_CONLYFLAGS
 LOCAL_CONLYFLAGS += $(FTREE_VECTORIZE_FLAGS)
 else
@@ -766,7 +766,7 @@ endif
 ifneq ($(filter $(LOCAL_ENABLE_GOOGLE_OPTIMIZATIONS), $(LOCAL_MODULE)),)
 ifeq ($(LOCAL_IS_HOST_MODULE),)
 
-$(warning module $(LOCAL_MODULE) is using Google default optimizations )
+#$(warning module $(LOCAL_MODULE) is using Google default optimizations )
 
 LOCAL_CPPFLAGS += -ffunction-sections
 LOCAL_CFLAGS   += -ffunction-sections
@@ -817,7 +817,17 @@ my_asflags += $(LOCAL_ASFLAGS_$($(my_prefix)$(LOCAL_2ND_ARCH_VAR_PREFIX)ARCH)) $
 my_c_includes += $(LOCAL_C_INCLUDES_$($(my_prefix)$(LOCAL_2ND_ARCH_VAR_PREFIX)ARCH)) $(LOCAL_C_INCLUDES_$(my_32_64_bit_suffix))
 my_generated_sources += $(LOCAL_GENERATED_SOURCES_$($(my_prefix)$(LOCAL_2ND_ARCH_VAR_PREFIX)ARCH)) $(LOCAL_GENERATED_SOURCES_$(my_32_64_bit_suffix))
 
+my_clang :=
+
+ifeq ($(filter $(LOCAL_NO_CLANG),$(LOCAL_MODULE)),)
+
 my_clang := $(strip $(LOCAL_CLANG))
+ifeq ($(my_clang),true) 
+$(warning enabled CLANG for $(LOCAL_MODULE))
+endif
+
+endif
+
 ifdef LOCAL_CLANG_$(my_32_64_bit_suffix)
 my_clang := $(strip $(LOCAL_CLANG_$(my_32_64_bit_suffix)))
 endif
