@@ -917,8 +917,7 @@ LOCAL_FORCE_GCC52 := \
 	libRS \
 	libRSSupport \
 	libaudioresampler \
-	libskia \
-	libEGL
+	libskia
 
 #######################
 #  END FORCE GCC X.Y  #
@@ -966,9 +965,15 @@ LOCAL_HARDFLOAT := \
 # Link Time Optimization #
 ##########################
 
+# DON'T enable LTO for libEGL and libbinder
+# libbinder breaks RIL and libEGL causes the touchscreen not to respond
+# for the first half minute after ROM booting
+
 LOCAL_DISABLE_LTO := \
 	linker \
 	libbase \
+	libEGL \
+	libbinder \
 	libziparchive \
 	libc_nolto \
 	micro_bench_static
@@ -1105,7 +1110,6 @@ LOCAL_FORCE_ARM_MODULES_LIST := \
 	libfdlibm \
        libskia \
        libGLESv2 \
-       libEGL \
        libGLESv1_CM \
        libGLES_android \
 	libsurfaceflinger \
