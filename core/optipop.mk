@@ -1212,7 +1212,6 @@ LOCAL_NO_CLANG := \
       sh \
       libmksh_static \
       libopenfst-gnustl-rtti \
-      libscrypt_static \
       scrypt_test \
       libtoybox \
       toybox-instlist \
@@ -1503,3 +1502,4 @@ TO_TRY := \
       libRScpp \
       libRScpp_static \
       libRSSupportIO \
+      libscrypt_static
