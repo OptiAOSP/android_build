@@ -887,7 +887,11 @@ LOCAL_DISABLE_GRAPHITE := \
     libwebrtc_spl \
     libpcap \
     libsigchain \
-    libFraunhoferAAC
+    libFraunhoferAAC \
+    init \
+    libinit \
+    netd
+
 
 GRAPHITE_FLAGS := \
     -fgraphite \
@@ -916,6 +920,7 @@ LOCAL_FORCE_GCC49 := \
 LOCAL_FORCE_GCC52 := \
 	libRS \
 	libRSSupport \
+	libpixelflinger \
 	libaudioresampler \
 	libskia
 
@@ -976,7 +981,16 @@ LOCAL_DISABLE_LTO := \
 	libbinder \
 	libziparchive \
 	libc_nolto \
-	micro_bench_static
+	libc++ \
+	libadbd \
+	adbd \
+	netd \
+	micro_bench_static \
+	su \
+	simpleperf \
+	libcutils_nolto \
+	liblog_nolto \
+	sqlite3_nolto 
 
 ##############################
 # END Link Time Optimization #
@@ -1192,10 +1206,7 @@ LOCAL_NO_CLANG := \
       libgtest_main_host \
       libgtest \
       libgtest_main \
-      libc++_static \
-      libc++ \
       libunwind_llvm \
-      libc++abi \
       libexif \
       libpng \
       pngtest \
@@ -1490,7 +1501,6 @@ TO_TRY := \
       libcompiler_rt-extras \
       libcompiler_rt \
       libnetd_client \
-      netd \
       libsimpleperf \
       simpleperf \
       simpleperf_unit_test \
@@ -1502,4 +1512,8 @@ TO_TRY := \
       libRScpp \
       libRScpp_static \
       libRSSupportIO \
-      libscrypt_static
+      libscrypt_static \
+      libc++_static \
+      libc++abi \
+      libc++ \
+      netd

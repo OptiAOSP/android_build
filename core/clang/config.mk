@@ -68,8 +68,13 @@ CLANG_CONFIG_EXTRA_CPPFLAGS += \
 CLANG_CONFIG_EXTRA_CFLAGS += \
   -fcolor-diagnostics
 
+
 CLANG_CONFIG_UNKNOWN_CFLAGS := \
-  -mvectorize-with-neon-double \
+   -floop-flatten \
+   -ftree-loop-linear \
+   -fno-lto-report \
+   -flto-report \
+   -mvectorize-with-neon-double \
    -mvectorize-with-neon-quad \
    -fgcse-after-reload \
    -fgcse-las \

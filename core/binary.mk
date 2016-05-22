@@ -246,7 +246,6 @@ endif
 #############################
 ifeq ($(GRAPHITE_OPTS),true)
 ifndef LOCAL_IS_HOST_MODULE
-ifeq ($(LOCAL_CLANG),)
 ifeq ($(filter $(LOCAL_DISABLE_GRAPHITE), $(LOCAL_MODULE)),)
 
 ifdef LOCAL_CONLYFLAGS
@@ -265,7 +264,6 @@ LOCAL_CPPFLAGS := \
 	$(GRAPHITE_FLAGS)
 endif
 
-endif
 endif
 endif
 endif
@@ -545,7 +543,6 @@ endif
 
 ifeq ($(ENABLE_LTO),true)
  ifneq ($(strip $(LOCAL_IS_HOST_MODULE)),true)
-  ifneq ($(strip $(LOCAL_CLANG)),true)
 
 
 LTO_CFLAGS := \
@@ -584,32 +581,6 @@ ifneq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
 
 endif
 
-LTO_CFLAGS_DISABLE := -fno-lto -ffat-lto-objects -fno-use-linker-plugin -DN__LTO__ -fno-unit-at-a-time -fno-lto-report
-
-ifeq (1,$(words $(filter $(LOCAL_DISABLE_LTO),$(LOCAL_MODULE))))
-
- ifdef LOCAL_CFLAGS
-    LOCAL_CONLYFLAGS += $(LTO_CFLAGS_DISABLE)
-  else
-    LOCAL_CONLYFLAGS := $(LTO_CFLAGS_DISABLE)
-  endif
-
-  ifdef LOCAL_CPPFLAGS
-    LOCAL_CPPFLAGS += $(LTO_CFLAGS_DISABLE)
-  else
-    LOCAL_CPPFLAGS := $(LTO_CFLAGS_DISABLE)
-  endif
-
-  ifndef LOCAL_LDFLAGS
-    LOCAL_LDFLAGS := -Wl,-fno-lto
-  else
-    LOCAL_LDFLAGS += -Wl,-fno-lto
-  endif
-
-endif
-
-
-endif
 endif
 endif
 
@@ -732,7 +703,6 @@ endif
 ifeq ($(UNSAFE_LOOPS_OPTIMIZATIONS),true)
 
 ifeq ($(LOCAL_IS_HOST_MODULE),)
-ifneq ($(LOCAL_CLANG),true)
 
 ifeq ($(filter $(LOCAL_DISABLE_UNSAFE_LOOPS_OPTIMIZATIONS), $(LOCAL_MODULE)),)
 
@@ -753,7 +723,6 @@ endif
 endif
 endif
 
-endif
 
 #################################
 # END UNSAFE LOOP OPTIMIZATIONS #
