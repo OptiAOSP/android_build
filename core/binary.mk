@@ -1482,3 +1482,9 @@ endif
 
 # Make sure export_includes gets generated when you are running mm/mmm
 $(LOCAL_BUILT_MODULE) : | $(export_includes)
+
+ifneq ($(LOCAL_REPORT_FLAGS),)
+        $(warning $(LOCAL_MODULE) is built with CFLAGS=$(TARGET_GLOBAL_CFLAGS) \
+                  $(TARGET_thumb_CFLAGS) $(my_cflags) and my_ldflags=$(my_ldflags))
+
+endif
