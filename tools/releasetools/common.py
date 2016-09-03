@@ -1734,6 +1734,9 @@ def ParseCertificate(data):
 
 def MakeRecoveryPatch(input_dir, output_sink, recovery_img, boot_img,
                       info_dict=None):
+  pass
+
+def dummy():
   """Generate a binary patch that creates the recovery image starting
   with the boot image.  (Most of the space in these images is just the
   kernel, which is identical for the two, so the resulting patch
