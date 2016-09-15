@@ -914,6 +914,7 @@ LOCAL_DONT_USE_GCC52 := \
 	$(LIBC)
 
 LOCAL_FORCE_GCC48 := \
+	gralloc.montblanc
 
 LOCAL_FORCE_GCC49 := \
 
