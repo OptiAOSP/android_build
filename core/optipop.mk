@@ -867,6 +867,7 @@ LOCAL_ENABLE_NEST := \
 #       GRAPHITE_OPTS       #
 #############################
 LOCAL_DISABLE_GRAPHITE := \
+    libartd \
     libavcodec \
     libunwind \
     libFFTEm \
