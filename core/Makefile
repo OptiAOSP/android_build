@@ -2393,6 +2393,10 @@ endif
 ifdef BOARD_BPT_DISK_SIZE
 	$(hide) echo "board_bpt_disk_size=$(BOARD_BPT_DISK_SIZE)" >> $(zip_root)/META/misc_info.txt
 endif
+#ifeq ($(TARGET_NO_TWO_STEP_RECOVERY),true)
+	$(hide) echo "no_two_step_recovery=true" >> $(zip_root)/META/misc_info.txt
+#endif
+
 	$(call generate-userimage-prop-dictionary, $(zip_root)/META/misc_info.txt)
 ifneq ($(INSTALLED_RECOVERYIMAGE_TARGET),)
 	$(hide) PATH=$(foreach p,$(INTERNAL_USERIMAGES_BINARY_PATHS),$(p):)$$PATH MKBOOTIMG=$(MKBOOTIMG) \

@@ -1272,6 +1272,8 @@ def WriteABOTAPackageWithBrilloScript(target_file, output_file,
 def main(argv):
 
   def option_handler(o, a):
+    OPTIONS.block_based = False
+
     if o == "--board_config":
       pass   # deprecated
     elif o in ("-k", "--package_key"):
@@ -1307,8 +1309,8 @@ def main(argv):
       OPTIONS.no_signing = True
     elif o == "--verify":
       OPTIONS.verify = True
-    elif o == "--block":
-      OPTIONS.block_based = True
+    #elif o == "--block":
+    #  OPTIONS.block_based = True
     elif o in ("-b", "--binary"):
       OPTIONS.updater_binary = a
     elif o in ("--no_fallback_to_full",):
