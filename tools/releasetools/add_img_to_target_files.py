@@ -448,14 +448,14 @@ def AddImagesToTargetFiles(filename):
       if recovery_image:
         recovery_image.AddToZip(output_zip)
 
-      if use_two_step_recovery:
-        banner("recovery (two-step image)")
-        # The special recovery.img for two-step package use.
-        recovery_two_step_image = common.GetBootableImage(
-            "IMAGES/recovery-two-step.img", "recovery-two-step.img",
-            OPTIONS.input_tmp, "RECOVERY", two_step_image=True)
-        if recovery_two_step_image:
-          recovery_two_step_image.AddToZip(output_zip)
+      #if use_two_step_recovery:
+      #  banner("recovery (two-step image)")
+      #  # The special recovery.img for two-step package use.
+      #  recovery_two_step_image = common.GetBootableImage(
+      #      "IMAGES/recovery-two-step.img", "recovery-two-step.img",
+      #      OPTIONS.input_tmp, "RECOVERY", two_step_image=True)
+      #  if recovery_two_step_image:
+      #    recovery_two_step_image.AddToZip(output_zip)
 
   banner("system")
   system_imgname = AddSystem(output_zip, recovery_img=recovery_image,
