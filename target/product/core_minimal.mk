@@ -104,18 +104,15 @@ PRODUCT_BOOT_JARS := \
 # The order of PRODUCT_SYSTEM_SERVER_JARS matters.
 ifneq ($(TARGET_DISABLE_CMSDK), true)
 PRODUCT_SYSTEM_SERVER_JARS := \
-    org.cyanogenmod.platform \
-    org.cyanogenmod.hardware
-endif
-PRODUCT_SYSTEM_SERVER_JARS += \
     services \
     ethernet-service \
     wifi-service
+endif
 
 # Adoptable external storage f2fs support
 PRODUCT_PACKAGES += \
     fsck.f2fs \
-    mkfs.f2fs \
+    make_f2fs \
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.zygote=zygote32
