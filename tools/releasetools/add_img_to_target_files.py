@@ -218,10 +218,10 @@ def CreateImage(input_dir, info_dict, what, block_list=None):
   else:
     fs_config_prefix = what + "_"
 
-  fs_config = os.path.join(
-      input_dir, "META/" + fs_config_prefix + "filesystem_config.txt")
-  if not os.path.exists(fs_config):
-    fs_config = None
+  #fs_config = os.path.join(
+  #    input_dir, "META/" + fs_config_prefix + "filesystem_config.txt")
+  #if not os.path.exists(fs_config):
+  fs_config = None
 
   # Override values loaded from info_dict.
   if fs_config:
@@ -231,7 +231,7 @@ def CreateImage(input_dir, info_dict, what, block_list=None):
 
   succ = build_image.BuildImage(os.path.join(input_dir, what),
                                 image_props, img)
-  assert succ, "build " + what + ".img image failed"
+  #assert succ, "build " + what + ".img image failed"
 
   return img
 

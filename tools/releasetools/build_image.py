@@ -352,7 +352,7 @@ def BuildImage(in_dir, prop_dict, out_file, target_out=None):
   # system_root_image=true: build a system.img that combines the contents of
   # /system and the ramdisk, and can be mounted at the root of the file system.
   origin_in = in_dir
-  fs_config = prop_dict.get("fs_config")
+  fs_config = None
   base_fs_file = None
   if (prop_dict.get("system_root_image") == "true"
       and prop_dict["mount_point"] == "system"):
@@ -428,8 +428,8 @@ def BuildImage(in_dir, prop_dict, out_file, target_out=None):
     build_command.extend(["-L", prop_dict["mount_point"]])
     if "extfs_inode_count" in prop_dict:
       build_command.extend(["-i", prop_dict["extfs_inode_count"]])
-    if "selinux_fc" in prop_dict:
-      build_command.append(prop_dict["selinux_fc"])
+    #if "selinux_fc" in prop_dict:
+    #  build_command.append(prop_dict["selinux_fc"])
   elif fs_type.startswith("squash"):
     build_command = ["mksquashfsimage.sh"]
     build_command.extend([in_dir, out_file])
@@ -440,8 +440,8 @@ def BuildImage(in_dir, prop_dict, out_file, target_out=None):
       build_command.extend(["-d", target_out])
     if fs_config:
       build_command.extend(["-C", fs_config])
-    if "selinux_fc" in prop_dict:
-      build_command.extend(["-c", prop_dict["selinux_fc"]])
+    #if "selinux_fc" in prop_dict:
+    #  build_command.extend(["-c", prop_dict["selinux_fc"]])
     if "block_list" in prop_dict:
       build_command.extend(["-B", prop_dict["block_list"]])
     if "squashfs_compressor" in prop_dict:

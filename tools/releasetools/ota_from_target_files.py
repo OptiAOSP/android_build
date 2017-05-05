@@ -239,6 +239,7 @@ class ItemSet(object):
     return self.ITEMS[name]
 
   def GetMetadata(self, input_zip):
+    return
     # The target_files contains a record of what the uid,
     # gid, and mode are supposed to be.
     output = input_zip.read(self.fs_config)
@@ -761,7 +762,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     common.MakeRecoveryPatch(OPTIONS.input_tmp, output_sink,
                              recovery_img, boot_img)
 
-    system_items.GetMetadata(input_zip)
+    #system_items.GetMetadata(input_zip)
     system_items.Get("system").SetPermissions(script)
 
   if HasVendorPartition(input_zip):
@@ -781,7 +782,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
       symlinks = CopyPartitionFiles(vendor_items, input_zip, output_zip)
       script.MakeSymlinks(symlinks)
 
-      vendor_items.GetMetadata(input_zip)
+      #vendor_items.GetMetadata(input_zip)
       vendor_items.Get("vendor").SetPermissions(script)
 
   common.CheckSize(boot_img.data, "boot.img", OPTIONS.info_dict)
@@ -1909,10 +1910,10 @@ else
     target_symlinks.extend(CopyPartitionFiles(vendor_items, target_zip, None))
 
   temp_script = script.MakeTemporary()
-  system_items.GetMetadata(target_zip)
+  #system_items.GetMetadata(target_zip)
   system_items.Get("system").SetPermissions(temp_script)
   if vendor_diff:
-    vendor_items.GetMetadata(target_zip)
+    #vendor_items.GetMetadata(target_zip)
     vendor_items.Get("vendor").SetPermissions(temp_script)
 
   # Note that this call will mess up the trees of Items, so make sure
