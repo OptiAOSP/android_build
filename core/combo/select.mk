@@ -31,6 +31,10 @@ combo_var_prefix := $(combo_2nd_arch_prefix)$(combo_target)
 $(combo_var_prefix)GLOBAL_ARFLAGS := crsPD
 
 $(combo_var_prefix)STATIC_LIB_SUFFIX := .a
+$(combo_var_prefix)GLOBAL_CFLAGS := -fno-exceptions -Wno-multichar $(BOARD_GLOBAL_CFLAGS)
+$(combo_var_prefix)RELEASE_CFLAGS := -O2 -g -fno-strict-aliasing $(BOARD_RELEASE_CFLAGS)
+$(combo_var_prefix)GLOBAL_CPPFLAGS := $(BOARD_GLOBAL_CPPFLAGS)
+
 
 # Now include the combo for this specific target.
 include $(BUILD_COMBOS)/$(combo_target)$(combo_os_arch).mk
