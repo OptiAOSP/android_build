@@ -116,7 +116,7 @@ def Run(args, verbose=None, **kwargs):
   """
   if verbose is None:
     verbose = OPTIONS.verbose
-  if verbose:
+  if 1: #OPTIONS.verbose:
     print("  running: ", " ".join(args))
   return subprocess.Popen(args, **kwargs)
 
