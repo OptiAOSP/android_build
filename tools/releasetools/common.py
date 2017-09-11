@@ -110,7 +110,7 @@ class ExternalError(RuntimeError):
 def Run(args, **kwargs):
   """Create and return a subprocess.Popen object, printing the command
   line on the terminal if -v was specified."""
-  if OPTIONS.verbose:
+  if 1: #OPTIONS.verbose:
     print("  running: ", " ".join(args))
   return subprocess.Popen(args, **kwargs)
 
