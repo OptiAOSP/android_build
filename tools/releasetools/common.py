@@ -1369,6 +1369,8 @@ class BlockDifference(object):
     self.touched_src_ranges = b.touched_src_ranges
     self.touched_src_sha1 = b.touched_src_sha1
 
+    return
+
     if src is None:
       _, self.device = GetTypeAndDevice("/" + partition, OPTIONS.info_dict)
     else:
@@ -1538,7 +1540,7 @@ class BlockDifference(object):
       code = ErrorCode.SYSTEM_UPDATE_FAILURE
     else:
       code = ErrorCode.VENDOR_UPDATE_FAILURE
-
+    return
     call = ('block_image_update("{device}", '
             'package_extract_file("{partition}.transfer.list"), '
             '"{partition}.new.dat", "{partition}.patch.dat") ||\n'
@@ -1584,7 +1586,8 @@ def GetTypeAndDevice(mount_point, info):
     return (PARTITION_TYPES[fstab[mount_point].fs_type],
             fstab[mount_point].device)
   else:
-    raise KeyError
+    return []
+    #raise KeyError
 
 
 def ParseCertificate(data):
