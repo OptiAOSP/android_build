@@ -130,6 +130,14 @@ def CloseInheritedPipes():
     except OSError:
       pass
 
+def read_helper1(input_file):
+  path = input_file
+  try:
+    with open(path) as f:
+      return f.read()
+  except IOError as e:
+    if e.errno == errno.ENOENT:
+      raise KeyError(input_file)
 
 def LoadInfoDict(input_file, input_dir=None):
   """Read and parse the META/misc_info.txt key/value pairs from the
@@ -235,20 +243,20 @@ def LoadInfoDict(input_file, input_dir=None):
   makeint("fstab_version")
 
   system_root_image = d.get("system_root_image", None) == "true"
-  """if d.get("no_recovery", None) != "true":
-    recovery_fstab_path = "RECOVERY/RAMDISK/etc/recovery.fstab"
-    d["fstab"] = LoadRecoveryFSTab(read_helper, d["fstab_version"],
+  """if d.get("no_recovery", None) != "true":"""
+  recovery_fstab_path = "/media/chrono/AMV/cache/out/target/product/codina/root/fstab.samsungcodina"
+  d["fstab"] = LoadRecoveryFSTab(read_helper1, d["fstab_version"],
         recovery_fstab_path, system_root_image)
-  elif d.get("recovery_as_boot", None) == "true":
+  """elif d.get("recovery_as_boot", None) == "true":
     recovery_fstab_path = "BOOT/RAMDISK/etc/recovery.fstab"
     d["fstab"] = LoadRecoveryFSTab(read_helper, d["fstab_version"],
         recovery_fstab_path, system_root_image)
   else:
     d["fstab"] = None"""
 
-  recovery_fstab_path = "../root/fstab.samsungcodina"
+  """recovery_fstab_path = "/media/chrono/AMV/cache/out/target/product/codina/root/fstab.samsungcodina"
   d["fstab"] = LoadRecoveryFSTab(read_helper, d["fstab_version"],
-        recovery_fstab_path, system_root_image)
+        recovery_fstab_path, system_root_image)"""
 
   d["build.prop"] = LoadBuildProp(read_helper)
   return d
@@ -288,7 +296,8 @@ def LoadRecoveryFSTab(read_helper, fstab_version, recovery_fstab_path,
   try:
     data = read_helper(recovery_fstab_path)
   except KeyError:
-    print("Warning: could not find {}".format(recovery_fstab_path))
+    #print("Warning: could not find {}".format(recovery_fstab_path))
+    raise
     data = ""
 
   assert fstab_version == 2
@@ -1584,12 +1593,18 @@ PARTITION_TYPES = {
 
 def GetTypeAndDevice(mount_point, info):
   fstab = info["fstab"]
-  if fstab:
-    return (PARTITION_TYPES[fstab[mount_point].fs_type],
-            fstab[mount_point].device)
-  else:
-    raise KeyError
+  if not fstab:
+    recovery_fstab_path = "/media/chrono/AMV/cache/out/target/product/codina/obj/RECOVERY/RAMDISK/etc/recovery.fstab"
+    #fstab_version = 2
+    fstab_version = 2
+    info["fstab"] = LoadRecoveryFSTab(read_helper1, fstab_version,
+        recovery_fstab_path, info.get("system_root_image", None) == "true")
+    print(info["fstab"])
 
+  #if fstab:
+  return (PARTITION_TYPES[fstab[mount_point].fs_type],
+            fstab[mount_point].device)
+  #else:
 
 def ParseCertificate(data):
   """Parse a PEM-format certificate."""
