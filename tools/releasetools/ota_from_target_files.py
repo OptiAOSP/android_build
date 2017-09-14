@@ -173,7 +173,7 @@ if OPTIONS.worker_threads == 0:
   OPTIONS.worker_threads = 1
 OPTIONS.two_step = False
 OPTIONS.no_signing = False
-OPTIONS.block_based = True
+OPTIONS.block_based = False
 OPTIONS.updater_binary = None
 OPTIONS.oem_source = None
 OPTIONS.oem_no_mount = False
@@ -1303,8 +1303,6 @@ def WriteABOTAPackageWithBrilloScript(target_file, output_file,
 def main(argv):
 
   def option_handler(o, a):
-    OPTIONS.block_based = False
-
     if o == "--board_config":
       pass   # deprecated
     elif o in ("-k", "--package_key"):
