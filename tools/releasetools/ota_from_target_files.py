@@ -690,7 +690,8 @@ def WriteFullOTAPackage(input_zip, output_zip):
       info_dict=OPTIONS.info_dict)
 
   #assert HasRecoveryPatch(input_zip)
-  block_based = OPTIONS.block_based and has_recovery_patch
+  #block_based = OPTIONS.block_base # and has_recovery_patch
+  block_based = True
 
   metadata["ota-type"] = "BLOCK" if block_based else "FILE"
 
@@ -2217,8 +2218,8 @@ def main(argv):
       OPTIONS.no_signing = True
     elif o == "--verify":
       OPTIONS.verify = True
-    #elif o == "--block":
-    #  OPTIONS.block_based = True
+    elif o == "--block":
+      OPTIONS.block_based = True
     elif o in ("-b", "--binary"):
       OPTIONS.updater_binary = a
     elif o in ("--no_fallback_to_full",):
