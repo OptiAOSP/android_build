@@ -244,7 +244,7 @@ def LoadInfoDict(input_file, input_dir=None):
 
   system_root_image = d.get("system_root_image", None) == "true"
   """if d.get("no_recovery", None) != "true":"""
-  recovery_fstab_path = "/media/chrono/AMV/cache/out/target/product/codina/root/fstab.samsungcodina"
+  recovery_fstab_path = "/media/f/root/CM15_2/out/target/product/codina/root/fstab.samsungcodina"
   d["fstab"] = LoadRecoveryFSTab(read_helper1, d["fstab_version"],
         recovery_fstab_path, system_root_image)
   """elif d.get("recovery_as_boot", None) == "true":
@@ -254,7 +254,7 @@ def LoadInfoDict(input_file, input_dir=None):
   else:
     d["fstab"] = None"""
 
-  """recovery_fstab_path = "/media/chrono/AMV/cache/out/target/product/codina/root/fstab.samsungcodina"
+  """recovery_fstab_path = "/media/f/root/CM15_2/out/target/product/codina/root/fstab.samsungcodina"
   d["fstab"] = LoadRecoveryFSTab(read_helper, d["fstab_version"],
         recovery_fstab_path, system_root_image)"""
 
@@ -1594,7 +1594,7 @@ PARTITION_TYPES = {
 def GetTypeAndDevice(mount_point, info):
   fstab = info["fstab"]
   if not fstab:
-    recovery_fstab_path = "/media/chrono/AMV/cache/out/target/product/codina/obj/RECOVERY/RAMDISK/etc/recovery.fstab"
+    recovery_fstab_path = "/media/f/root/CM15_2/out/target/product/codina/obj/RECOVERY/RAMDISK/etc/recovery.fstab"
     #fstab_version = 2
     fstab_version = 2
     info["fstab"] = LoadRecoveryFSTab(read_helper1, fstab_version,
