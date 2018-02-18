@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
+
 import re
 
 import common
@@ -371,8 +373,14 @@ class EdifyGenerator(object):
     common.ZipWriteStr(output_zip, "META-INF/com/google/android/updater-script",
                        "\n".join(self.script) + "\n")
 
+    out = os.path.realpath(os.getenv('OUT'))
+    updater_path = os.path.join(out, "updater")
+
     if input_path is None:
-      data = input_zip.read("OTA/bin/updater")
+      if os.path.isfile(updater_path):
+        data = input_zip.read(updater_path)
+      else:
+        data = input_zip.read("OTA/bin/updater")
     else:
       data = open(input_path, "rb").read()
     common.ZipWriteStr(output_zip, "META-INF/com/google/android/update-binary",
