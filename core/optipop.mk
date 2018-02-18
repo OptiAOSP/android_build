@@ -1080,6 +1080,7 @@ libril
 
 
 LOCAL_ENABLE_GOOGLE_OPTIMIZATIONS := \
+ libc_nolto \
  linker \
  libbase \
  libziparchive \
