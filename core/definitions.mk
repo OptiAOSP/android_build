@@ -1625,6 +1625,38 @@ define transform-o-to-static-executable
 $(transform-o-to-static-executable-inner)
 endef
 
+define transform-o-to-static-executable-nolto-inner
+$(hide) $(PRIVATE_CXX) \
+	-nostdlib -Bstatic \
+	$(if $(filter $(PRIVATE_LDFLAGS),-shared),,-static) \
+	-Wl,--gc-sections \
+	-o $@ \
+	$(PRIVATE_TARGET_GLOBAL_LD_DIRS) \
+	$(if $(filter true,$(PRIVATE_NO_CRT)),,$(PRIVATE_TARGET_CRTBEGIN_STATIC_O)) \
+	$(PRIVATE_TARGET_GLOBAL_LDFLAGS) \
+	$(PRIVATE_LDFLAGS) \
+	$(PRIVATE_ALL_OBJECTS) \
+	-Wl,--whole-archive \
+	$(call normalize-target-libraries,$(PRIVATE_ALL_WHOLE_STATIC_LIBRARIES)) \
+	-Wl,--no-whole-archive \
+	$(call normalize-target-libraries,$(filter-out %libcompiler_rt.a,$(filter-out %libc_nomalloc.a,$(filter-out %libc_nolto.a,$(PRIVATE_ALL_STATIC_LIBRARIES))))) \
+	-Wl,--start-group \
+	$(call normalize-target-libraries,$(filter %libc_nolto.a,$(PRIVATE_ALL_STATIC_LIBRARIES))) \
+	$(call normalize-target-libraries,$(filter %libc_nomalloc.a,$(PRIVATE_ALL_STATIC_LIBRARIES))) \
+	$(if $(filter true,$(NATIVE_COVERAGE)),$(PRIVATE_TARGET_LIBGCOV)) \
+	$(if $(filter true,$(NATIVE_COVERAGE)),$(PRIVATE_TARGET_LIBPROFILE_RT)) \
+	$(PRIVATE_TARGET_LIBATOMIC) \
+	$(call normalize-target-libraries,$(filter %libcompiler_rt.a,$(PRIVATE_ALL_STATIC_LIBRARIES))) \
+	$(PRIVATE_TARGET_LIBGCC) \
+	-Wl,--end-group \
+	$(if $(filter true,$(PRIVATE_NO_CRT)),,$(PRIVATE_TARGET_CRTEND_O))
+endef
+
+define transform-o-to-static-executable-nolto
+@mkdir -p $(dir $@)
+@echo -e ${CL_GRN}"target StaticExecutable:"${CL_RST}" $(PRIVATE_MODULE) ($@)"
+$(transform-o-to-static-executable-nolto-inner)
+endef
 
 ###########################################################
 ## Commands for running gcc to link a host executable

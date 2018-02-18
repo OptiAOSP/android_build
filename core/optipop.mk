@@ -978,6 +978,27 @@ LOCAL_HARDFLOAT := \
 # for the first half minute after ROM booting
 
 LOCAL_DISABLE_LTO := \
+libext4_utils_static \
+libsparse_static \
+libext2_blkid \
+libext2_uuid \
+libapplypatch \
+libedify \
+libmtdutils \
+libminzip \
+libz \
+libmincrypt \
+libbz \
+libxz \
+liblog \
+libselinux \
+libext2_com_err \
+libext2_blkid \
+libext2_quota \
+libext2_uuid_static \
+libext2_e2p \
+libext2fs \
+	updater \
 	linker \
 	libbase \
 	libEGL \
@@ -1080,6 +1101,27 @@ libril
 
 
 LOCAL_ENABLE_GOOGLE_OPTIMIZATIONS := \
+updater \
+libext4_utils_static \
+libsparse_static \
+libext2_blkid \
+libext2_uuid \
+libapplypatch \
+libedify \
+libmtdutils \
+libminzip \
+libz \
+libmincrypt \
+libbz \
+libxz \
+liblog \
+libselinux \
+libext2_com_err \
+libext2_blkid \
+libext2_quota \
+libext2_uuid_static \
+libext2_e2p \
+libext2fs \
  libc_nolto \
  linker \
  libbase \
