@@ -475,6 +475,17 @@ def CopyInstallTools(output_zip):
       output_zip.write(p, p)
   os.chdir(oldcwd)
 
+def CopyUpdaterScript(output_zip):
+  oldcwd = os.getcwd()
+  out = os.path.realpath(os.getenv('OUT'))
+  os.chdir(out)
+  updater_script_path = "META-INF/com/google/android/updater-script-codina"
+
+  if os.path.isfile(os.path.join(out, updater_script_path)):
+	  output_zip.write(updater_script_path, updater_script_path)
+
+  os.chdir(oldcwd)
+
 def WriteFullOTAPackage(input_zip, output_zip):
   # TODO: how to determine this?  We don't know what version it will
   # be installed on top of. For now, we expect the API just won't
@@ -567,6 +578,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
   CopyInstallTools(output_zip)
+  CopyUpdaterScript(output_zip)
 
   system_progress = 0.75
 
