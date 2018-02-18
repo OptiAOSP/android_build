@@ -164,20 +164,6 @@ java_version := $(shell echo '$(java_version_str)' | grep '^java .*[ "]1\.7[\. "
 javac_version := $(shell echo '$(javac_version_str)' | grep '[ "]1\.7[\. "$$]')
 endif # if EXPERIMENTAL_USE_JAVA8
 
-ifeq ($(strip $(java_version)),)
-$(info ************************************************************)
-$(info You are attempting to build with the incorrect version)
-$(info of java.)
-$(info $(space))
-$(info Your version is: $(java_version_str).)
-$(info The required version is: $(required_version))
-$(info $(space))
-$(info Please follow the machine setup instructions at)
-$(info $(space)$(space)$(space)$(space)https://source.android.com/source/initializing.html)
-$(info ************************************************************)
-$(error stop)
-endif
-
 # Check for the current JDK.
 #
 # For Java 1.7, we require OpenJDK on linux and Oracle JDK on Mac OS.
@@ -210,21 +196,6 @@ $(info ************************************************************)
 $(error stop)
 endif # java version is not Sun Oracle JDK
 endif # if requires_openjdk
-
-# Check for the correct version of javac
-ifeq ($(strip $(javac_version)),)
-$(info ************************************************************)
-$(info You are attempting to build with the incorrect version)
-$(info of javac.)
-$(info $(space))
-$(info Your version is: $(javac_version_str).)
-$(info The required version is: $(required_javac_version))
-$(info $(space))
-$(info Please follow the machine setup instructions at)
-$(info $(space)$(space)$(space)$(space)https://source.android.com/source/download.html)
-$(info ************************************************************)
-$(error stop)
-endif
 
 
 ifndef BUILD_EMULATOR
