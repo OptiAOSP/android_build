@@ -466,13 +466,14 @@ def GetImage(which, tmpdir, info_dict):
 
   return sparse_img.SparseImage(path, mappath, clobbered_blocks)
 
-def CopyInstallTools(output_zip):
+def CopyCustomDirs(output_zip, dirs):
   oldcwd = os.getcwd()
   os.chdir(os.getenv('OUT'))
-  for root, subdirs, files in os.walk("install"):
-    for f in files:
-      p = os.path.join(root, f)
-      output_zip.write(p, p)
+  for d in dirs:
+    for root, subdirs, files in os.walk(d):
+      for f in files:
+        p = os.path.join(root, f)
+        output_zip.write(p, p)
   os.chdir(oldcwd)
 
 def CopyUpdaterScript(output_zip):
@@ -577,7 +578,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
-  CopyInstallTools(output_zip)
+  CopyCustomDirs(output_zip, ["install", "data"])
   CopyUpdaterScript(output_zip)
 
   system_progress = 0.75
