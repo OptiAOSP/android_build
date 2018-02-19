@@ -925,7 +925,8 @@ LOCAL_FORCE_GCC52 := \
 	libRSSupport \
 	libpixelflinger \
 	libaudioresampler \
-	libskia
+	libskia \
+        libpac
 
 #######################
 #  END FORCE GCC X.Y  #
@@ -978,6 +979,8 @@ LOCAL_HARDFLOAT := \
 # for the first half minute after ROM booting
 
 LOCAL_DISABLE_LTO := \
+libril \
+librilutils \
 libext4_utils_static \
 libsparse_static \
 libext2_blkid \
@@ -1101,6 +1104,8 @@ libril
 
 
 LOCAL_ENABLE_GOOGLE_OPTIMIZATIONS := \
+libril \
+librilutils \
 updater \
 libext4_utils_static \
 libsparse_static \

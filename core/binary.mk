@@ -291,6 +291,8 @@ endif
 
 endif
 
+ifneq ($(FORCE_CUSTOM_GCC),)
+
 ####################
 #  FORCE GCC 4.9   #
 ####################
@@ -461,6 +463,8 @@ endif
 #######################
 #  END FORCE GCC 5.2  #
 #######################
+
+endif # FORCE_CUSTOM_GCC
 
 #######################
 #  NEON OPTIMIZATION  #
