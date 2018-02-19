@@ -1156,6 +1156,7 @@ libext2fs \
  libminiunz_static \
  libtar \
  bu_recovery \
+ libunwind_llvm
 
 # libbridge \
 # brctl
@@ -1257,7 +1258,6 @@ LOCAL_NO_CLANG := \
       libgtest_main_host \
       libgtest \
       libgtest_main \
-      libunwind_llvm \
       libexif \
       libpng \
       pngtest \
@@ -1402,6 +1402,7 @@ LOCAL_NO_CLANG := \
       vdc \
       secdiscard \
       libminivold_static
+#      libunwind_llvm \
 
 # to try
 TO_TRY := \
