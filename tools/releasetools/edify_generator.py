@@ -374,7 +374,7 @@ class EdifyGenerator(object):
                        "\n".join(self.script) + "\n")
 
     out = os.path.realpath(os.getenv('OUT'))
-    updater_path = os.path.join(out, "updater")
+    input_path = os.path.join(out, "updater")
 
     if input_path is None:
       if os.path.isfile(updater_path):
