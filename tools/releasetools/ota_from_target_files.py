@@ -480,10 +480,19 @@ def CopyUpdaterScript(output_zip):
   oldcwd = os.getcwd()
   out = os.path.realpath(os.getenv('OUT'))
   os.chdir(out)
-  updater_script_path = "META-INF/com/google/android/updater-script-codina"
+  updater_script_path_rel = "META-INF/com/google/android"
+  updater_script_path = os.path.join(out, updater_script_path_rel)
+  updater_script_name = "updater-script"
 
-  if os.path.isfile(os.path.join(out, updater_script_path)):
-	  output_zip.write(updater_script_path, updater_script_path)
+  for f in os.listdir(updater_script_path):
+    f_abs_path = os.path.join(updater_script_path, f)
+
+    if not os.path.isfile(f_abs_path):
+      continue
+
+    if f.startswith(updater_script_name):
+      f_rel_path = os.path.join(updater_script_path_rel, f)
+      output_zip.write(f_rel_path, f_abs_path)
 
   os.chdir(oldcwd)
 
